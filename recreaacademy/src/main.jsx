@@ -7,6 +7,7 @@ import Innovaciones from './pages/Innovaciones/Innovaciones';
 import Colaboraciones from './pages/Colaboraciones/Colaboraciones';
 import Eventos from './pages/Eventos/Eventos';
 import MiPortafolio from './pages/Portafolio/MiPortafolio';
+import App from './App';
 
 const router = createBrowserRouter([
   {
