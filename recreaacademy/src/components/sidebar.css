@@ -1,0 +1,60 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: white;
+  border-right: 1px solid #e6e6e6;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+.logo h2 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.recrea {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.academy {
+  color: #f59e0b;
+  font-weight: bold;
+}
+
+.year {
+  background-color: #c70045;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.menu li svg {
+  margin-right: 10px;
+}
+
+.menu li:hover,
+.menu .active {
+  background-color: #fef3c7;
+  color: #c2410c;
+}
