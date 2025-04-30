@@ -1,6 +1,6 @@
 // src/components/Layout.jsx
 import React from "react";
-import Sidebar from "../Sidebar/sidebar"; 
+import Sidebar from "../Sidebar/sidebar";
 import "./Layout.css";
 
 const Layout = ({ children }) => {
@@ -8,7 +8,9 @@ const Layout = ({ children }) => {
     <>
       <Sidebar />
       <main className="main-content">
-        {children}
+        <div className="content-container">
+          {children}
+        </div>
       </main>
     </>
   );
