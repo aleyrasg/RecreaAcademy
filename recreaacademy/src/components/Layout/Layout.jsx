@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Sidebar />
-      <main style={{ padding: "20px", marginLeft: "250px" }}>
+      <main className="main-content">
         {children}
       </main>
     </>
