@@ -1,19 +1,14 @@
 // import { useState } from 'react'
 import './App.css'
 import React from 'react';
-import Sidebar from './components/Sidebar/sidebar';
-import { FaHome, FaUser, FaBook } from 'react-icons/fa';
+import Layout from './components/Layout/Layout';
 
 
 function App() {
   return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar />
-      <main style={{ padding: '20px', flex: 1 }}>
-        {/* Aquí iría el contenido principal */}
-        <h1>Bienvenido a Recrea Academy</h1>
-      </main>
-    </div>
+    <Layout>
+      <h1>Bienvenidos a Recrea Academy</h1>
+    </Layout>
   );
 }
 

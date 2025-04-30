@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar/sidebar'
-import Layout from '../../components/Layout';
+import Layout from '../../components/Layout/Layout';
 
 function Innovaciones() {
   return (
