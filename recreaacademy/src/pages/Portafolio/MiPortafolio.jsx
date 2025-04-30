@@ -3,7 +3,7 @@ import Sidebar from '../../components/sidebar'
 
 function MiPortafolio() {
   return (
-    <div>
+    <div style={{ display: 'flex' }}>
       <Sidebar />
       <main style={{ padding: '20px', flex: 1 }}>
         {/* Aquí iría el contenido principal */}

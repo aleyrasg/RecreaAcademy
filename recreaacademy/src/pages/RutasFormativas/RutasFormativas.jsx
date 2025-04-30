@@ -3,7 +3,7 @@ import Sidebar from '../../components/sidebar'
 
 function RutasFormativas() {
   return (
-    <div>
+    <div style={{ display: 'flex' }}>
       <Sidebar />
       <h1>Rutas Formativas</h1>
     </div>

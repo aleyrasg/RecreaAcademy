@@ -3,9 +3,12 @@ import Sidebar from '../../components/sidebar'
 
 function Ranking() {
   return (
-    <div>
+    <div style={{ display: 'flex' }}>
         <Sidebar />
-      <h1>Ranking</h1>
+        <main style={{ padding: '20px', flex: 1 }}>
+        {/* Aquí iría el contenido principal */}
+        <h1>Bienvenido a Recrea Academy</h1>
+      </main>
     </div>
   )
 }

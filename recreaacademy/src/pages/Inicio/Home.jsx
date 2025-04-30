@@ -5,7 +5,11 @@ function Home() {
   return (
     <div>
       <Sidebar />
-      <h1>Home</h1>
+      <main style={{ padding: '20px', flex: 1 }}>
+        {/* Aquí iría el contenido principal */}
+        <h1>Home</h1>
+      </main>
+      
     </div>
   )
 }

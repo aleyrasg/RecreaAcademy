@@ -3,10 +3,12 @@ import Sidebar from '../../components/sidebar'
 
 function Innovaciones() {
   return (
-    <div>
+    <div style={{ display: 'flex' }}>
       <Sidebar />
-      {/* <h1>Innovaciones</h1> */}
-      <h1>Innovaciones</h1>
+      <main style={{ padding: '20px', flex: 1 }}>
+        {/* Aquí iría el contenido principal */}
+        <h1> Innovaciones</h1>
+      </main>
     </div>
   )
 }

@@ -15,11 +15,11 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />
   },
-  // {
+  {
     
-  //   path: '/',
-  //   element: <Home />,
-  // },
+    path: '/home',
+    element: <Home />,
+  },
   {
     path: '/rutas-formativas',
     element: <RutasFormativas />,
