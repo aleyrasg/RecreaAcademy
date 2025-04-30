@@ -1,16 +1,14 @@
 import React from 'react'
-import Sidebar from '../../components/sidebar'
+import Sidebar from '../../components/Sidebar/sidebar'
+import Layout from '../../components/Layout';
 
 function Innovaciones() {
   return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar />
-      <main style={{ padding: '20px', flex: 1 }}>
-        {/* Aquí iría el contenido principal */}
-        <h1> Innovaciones</h1>
-      </main>
-    </div>
-  )
+    <Layout>
+      <h1>Innovaciones</h1>
+      {/* Aquí iría el contenido adicional */}
+    </Layout>
+  );
 }
 
-export default Innovaciones
+export default Innovaciones;

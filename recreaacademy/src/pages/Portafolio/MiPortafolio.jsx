@@ -1,16 +1,12 @@
 import React from 'react'
-import Sidebar from '../../components/sidebar'
+import Layout from '../../components/Layout'
 
 function MiPortafolio() {
   return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar />
-      <main style={{ padding: '20px', flex: 1 }}>
-        {/* Aquí iría el contenido principal */}
-        <h1>Mi portafolio</h1>
-      </main>
-      
-    </div>
+    <Layout>
+      <h1>Mi Portafolio</h1>
+      {/* Aquí iría el contenido adicional */}
+    </Layout> 
   )
 }
 

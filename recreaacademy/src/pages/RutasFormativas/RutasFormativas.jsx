@@ -1,12 +1,12 @@
 import React from 'react'
-import Sidebar from '../../components/sidebar'
+import Layout from '../../components/Layout'
 
 function RutasFormativas() {
   return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar />
+    <Layout>
       <h1>Rutas Formativas</h1>
-    </div>
+      {/* Aquí iría el contenido adicional */}
+    </Layout>
   )
 }
 

@@ -1,15 +1,12 @@
 import React from 'react'
-import Sidebar from '../../components/sidebar'
+import Layout from '../../components/Layout'
 
 function Eventos() {
   return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar />
-      <main style={{ padding: '20px', flex: 1 }}>
-        {/* Aquí iría el contenido principal */}
-        <h1>Eventos</h1>
-      </main>
-    </div>
+    <Layout>
+      <h1>Eventos</h1>
+      {/* Aquí iría el contenido adicional */}
+    </Layout>
   )
 }
 

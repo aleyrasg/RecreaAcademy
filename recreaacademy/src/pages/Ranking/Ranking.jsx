@@ -1,15 +1,11 @@
 import React from 'react'
-import Sidebar from '../../components/sidebar'
+import Layout from '../../components/Layout'
 
 function Ranking() {
   return (
-    <div style={{ display: 'flex' }}>
-        <Sidebar />
-        <main style={{ padding: '20px', flex: 1 }}>
-        {/* Aquí iría el contenido principal */}
-        <h1>Bienvenido a Recrea Academy</h1>
-      </main>
-    </div>
+    <Layout>
+      <h1>Ranking</h1>
+    </Layout>
   )
 }
 

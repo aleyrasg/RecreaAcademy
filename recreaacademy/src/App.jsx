@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import './App.css'
 import React from 'react';
-import Sidebar from './components/sidebar';
+import Sidebar from './components/Sidebar/sidebar';
 import { FaHome, FaUser, FaBook } from 'react-icons/fa';
 
 

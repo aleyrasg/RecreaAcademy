@@ -1,17 +1,11 @@
 import React from 'react'
-import Sidebar from '../../components/sidebar'
+import Layout from '../../components/Layout';
 
 function Home() {
   return (
-    <div>
-      <Sidebar />
-      <main style={{ padding: '20px', flex: 1 }}>
-        {/* Aquí iría el contenido principal */}
-        <h1>Home</h1>
-      </main>
-      
-    </div>
-  )
+    <Layout>
+      <h1>Inicio</h1>
+    </Layout>
+  );
 }
-
 export default Home
