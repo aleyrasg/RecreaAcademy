@@ -7,6 +7,7 @@ import Innovaciones from './pages/Innovaciones/Innovaciones';
 import Colaboraciones from './pages/Colaboraciones/Colaboraciones';
 import Eventos from './pages/Eventos/Eventos';
 import MiPortafolio from './pages/Portafolio/MiPortafolio';
+import Ranking from './pages/Ranking/Ranking';
 import App from './App';
 
 const router = createBrowserRouter([
@@ -39,7 +40,10 @@ const router = createBrowserRouter([
     path: '/mi-portafolio',
     element: <MiPortafolio />,
   },
-
+  {
+    path: '/ranking',
+    element: <Ranking />,
+  }
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,13 +1,13 @@
 import React from 'react'
 import Sidebar from '../../components/sidebar'
 
-function Home() {
+function Ranking() {
   return (
     <div>
-      <Sidebar />
-      <h1>Home</h1>
+        <Sidebar />
+      <h1>Ranking</h1>
     </div>
   )
 }
 
-export default Home
+export default Ranking
