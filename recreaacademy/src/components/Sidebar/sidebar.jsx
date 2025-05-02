@@ -11,6 +11,8 @@ import {
 import "./sidebar.css";
 import { Link, useLocation } from "react-router-dom";
 import { Typography } from "@mui/material";
+import RecreaLogo from '../../assets/RecreaLogo.png';
+
 
 const Sidebar = () => {
   const location = useLocation();
@@ -20,11 +22,7 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="logo">
-        <h2>
-          <span className="recrea">Recrea</span>{" "}
-          <span className="academy">Academy</span>
-          <span className="year">2025</span>
-        </h2>
+       <img src={RecreaLogo} width={153.12} height={60.96}/> {/* Cambia la ruta de la imagen según sea necesario */}
       </div>
 
       <nav className="menu">
