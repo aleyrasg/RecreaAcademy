@@ -51,10 +51,15 @@
     background: #eee;
   }
   
-  .search-container{
+  .search-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 2;
-    
+    gap: 16px; /* Espacio entre input y botón */
+    margin: 20px 0;
   }
+  
+  .search-container .MuiTextField-root {
+    flex: 1; /* Hace que el input ocupe el máximo espacio disponible */
+    max-width: 700px;
+  }
+  

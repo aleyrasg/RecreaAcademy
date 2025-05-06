@@ -44,7 +44,7 @@ function Colaboraciones() {
         placeholder="Buscar proyectos"
         variant="outlined"
         size="small"
-        fullWidth
+        width= "500px"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -52,7 +52,7 @@ function Colaboraciones() {
             </InputAdornment>
           ),
           sx: {
-            borderRadius: '25px',
+            borderRadius: '10px',
             backgroundColor: '#fff',
             paddingLeft: '8px'
           }
@@ -69,7 +69,7 @@ function Colaboraciones() {
         variant="contained"
         startIcon={<AddIcon />}
         sx={{
-          borderRadius: '25px',
+          borderRadius: '10px',
           backgroundColor: '#FF004C',
           textTransform: 'none',
           fontWeight: 'bold',
