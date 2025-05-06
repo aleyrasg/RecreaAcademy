@@ -1,5 +1,8 @@
 /* src/components/Layout.css */
-
+.rutas-formativas-header
+{
+  text-align: left;
+}
 .main-content {
     margin-left: 250px; /* Igual al ancho del sidebar */
     padding: 40px 0;    /* Quitamos padding lateral excesivo */
@@ -27,10 +30,10 @@
   .main-content p
   {
     font-family: 'Roboto', sans-serif;
-    text-align: left;
+   
   }
   .main-content h2
   {
     font-family: 'Roboto', sans-serif;
-    text-align: left;
+   
   }
