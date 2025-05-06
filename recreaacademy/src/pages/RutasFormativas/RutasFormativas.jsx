@@ -1,6 +1,6 @@
-import React from 'react';
-import Layout from '../../components/Layout/Layout';
-import './RutasFormativas.css';
+import React from "react";
+import Layout from "../../components/Layout/Layout";
+import "./RutasFormativas.css";
 import {
   FaBook,
   FaGraduationCap,
@@ -10,7 +10,7 @@ import {
   FaHeart,
   FaVial,
   FaUserGraduate,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 
 function RutasFormativas() {
   return (
@@ -20,14 +20,30 @@ function RutasFormativas() {
 
       <div className="rotating-circle-container">
         <div className="rotating-circle">
-          <div className="icon"><FaBook /></div>
-          <div className="icon"><FaGraduationCap /></div>
-          <div className="icon"><FaFire /></div>
-          <div className="icon"><FaTrophy /></div>
-          <div className="icon"><FaTools /></div>
-          <div className="icon"><FaHeart /></div>
-          <div className="icon"><FaVial /></div>
-          <div className="icon"><FaUserGraduate /></div>
+          <div className="icon">
+            <span className="material-symbols-outlined">local_library</span>
+          </div>
+          <div className="icon">
+            <span className="material-symbols-outlined">school</span>
+          </div>
+          <div className="icon">
+            <span className="material-symbols-outlined">model_training</span>
+          </div>
+          <div className="icon">
+            <span className="material-symbols-outlined">labs</span>
+          </div>
+          <div className="icon">
+            <span className="material-symbols-outlined">digital_wellbeing</span>
+          </div>
+          <div className="icon">
+            <span className="material-symbols-outlined">network_intel_node</span>
+          </div>
+          <div className="icon">
+            <span className="material-symbols-outlined">rewarded_ads</span>
+          </div>
+          <div className="icon">
+            <span className="material-symbols-outlined">emoji_objects</span>
+          </div>
         </div>
 
         <div className="center-circle">

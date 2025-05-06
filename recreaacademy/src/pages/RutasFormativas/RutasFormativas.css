@@ -13,15 +13,16 @@
     position: relative;
     animation: rotate 20s linear infinite;
     background: conic-gradient(
-      #ffb127,
+      
       #ff7e4f,
-      #eb7871,
       #bbc810,
-      #b785c2,
       #fa68c1,
+      #b785c2,
       #3ab0e3,
       #05bac4,
-      #ffb127
+      #FEA904,
+      #ffb127,
+      #FE8520  
     );
   }
   
@@ -29,23 +30,24 @@
     position: absolute;
     font-size: 25px;
     background-color: white;
-    border-radius: 100%;
-    padding: 10px;
+    border-radius: 50%;
+    padding: 8px;
+    animation: normal;
   }
   
-  .icon:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+  .icon:nth-child(1) { top: 4%; left: 50%; transform: translate(-50%, -50%); }
   .icon:nth-child(2) { top: 20%; left: 85%; transform: translate(-50%, -50%); }
-  .icon:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+  .icon:nth-child(3) { top: 50%; left: 96%; transform: translate(-50%, -50%); }
   .icon:nth-child(4) { top: 80%; left: 85%; transform: translate(-50%, -50%); }
-  .icon:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+  .icon:nth-child(5) { top: 96%; left: 50%; transform: translate(-50%, -50%); }
   .icon:nth-child(6) { top: 80%; left: 15%; transform: translate(-50%, -50%); }
-  .icon:nth-child(7) { top: 50%; left: 0%; transform: translate(-50%, -50%); }
+  .icon:nth-child(7) { top: 50%; left: 4%; transform: translate(-50%, -50%); }
   .icon:nth-child(8) { top: 20%; left: 15%; transform: translate(-50%, -50%); }
   
-  @keyframes rotate {
+  /* @keyframes rotate {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
-  }
+  } */
   
   .center-circle {
     width: 420px;
