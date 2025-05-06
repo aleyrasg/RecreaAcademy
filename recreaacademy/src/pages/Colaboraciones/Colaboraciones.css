@@ -2,3 +2,59 @@
 {
     text-align: left;
 }
+.card-container {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .user-card {
+    width: 100px;
+    height: 140px;
+    border-radius: 16px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+  }
+  
+  .user-icon {
+    font-size: 36px;
+    background: white;
+    border-radius: 50%;
+    padding: 6px;
+    margin-bottom: 8px;
+    color: inherit;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .follow-btn {
+    background: white;
+    border: none;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-weight: bold;
+    color: inherit; /* << ESTE CAMBIO */
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .follow-btn:hover {
+    background: #eee;
+  }
+  
+  .search-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2;
+    
+  }
