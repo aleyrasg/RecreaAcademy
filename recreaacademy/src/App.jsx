@@ -1,14 +1,31 @@
-// import { useState } from 'react'
-import './App.css'
+// src/App.jsx
 import React from 'react';
-import Layout from './components/Layout/Layout';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar/Sidebar';
+import Inicio from './pages/Inicio/Home';
+import Innovaciones from './pages/Innovaciones/Innovaciones';
+import Colaboraciones from './pages/Colaboraciones/Colaboraciones';
+import Ranking from './pages/Ranking/Ranking';
+import Eventos from './pages/Eventos/Eventos';
+import MiPortafolio from './pages/Portafolio/MiPortafolio';
 
 function App() {
   return (
-    <Layout>
-      <h1>Bienvenidos a Recrea Academy</h1>
-    </Layout>
+    <Router>
+      <div className="flex min-h-screen">
+        <Sidebar />
+        <main className="flex-grow p-4">
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/innovaciones" element={<Innovaciones />} />
+            <Route path="/colaboraciones" element={<Colaboraciones />} />
+            <Route path="/ranking" element={<Ranking />} />
+            <Route path="/eventos" element={<Eventos />} />
+            <Route path="/mi-portafolio" element={<MiPortafolio />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
