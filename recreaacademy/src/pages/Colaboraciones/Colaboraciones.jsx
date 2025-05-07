@@ -95,10 +95,16 @@ function Colaboraciones() {
             variant="outlined"
             startIcon={<FilterListIcon />}
             sx={{
-              borderRadius: "20px",
+              borderRadius: "10px",
               textTransform: "none",
               fontWeight: "bold",
               marginLeft: "auto",
+              color: "#B0B0B0",
+              borderColor: "#B0B0B0",
+              "&:hover": {
+                backgroundColor: "#fff",
+                borderColor: "#B0B0B0",
+              },
             }}
           >
             Filtros
@@ -116,7 +122,11 @@ function Colaboraciones() {
           <div className="proyecto-actions">
             <Button
               variant="outlined"
-              sx={{ borderRadius: "20px", textTransform: "none" }}
+              sx={{ borderRadius: "10px", textTransform: "none", color: "#B0B0B0", borderColor: "#B0B0B0",
+                "&:hover": {
+                  backgroundColor: "#fff",
+                  borderColor: "#B0B0B0",
+                }, }}
             >
               Ver proyecto
             </Button>
@@ -124,7 +134,7 @@ function Colaboraciones() {
               variant="contained"
               sx={{
                 backgroundColor: "#FF004C",
-                borderRadius: "20px",
+                borderRadius: "10px",
                 textTransform: "none",
                 fontWeight: "bold",
                 "&:hover": {
@@ -148,7 +158,11 @@ function Colaboraciones() {
           <div className="proyecto-actions">
             <Button
               variant="outlined"
-              sx={{ borderRadius: "20px", textTransform: "none" }}
+              sx={{ borderRadius: "10px", textTransform: "none", color: "#B0B0B0", borderColor: "#B0B0B0",
+                "&:hover": {
+                  backgroundColor: "#fff",
+                  borderColor: "#B0B0B0",
+                }, }}
             >
               Ver proyecto
             </Button>
@@ -156,7 +170,7 @@ function Colaboraciones() {
               variant="contained"
               sx={{
                 backgroundColor: "#FF004C",
-                borderRadius: "20px",
+                borderRadius: "10px",
                 textTransform: "none",
                 fontWeight: "bold",
                 "&:hover": {

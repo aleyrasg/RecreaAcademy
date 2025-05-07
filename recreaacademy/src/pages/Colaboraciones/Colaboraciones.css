@@ -96,15 +96,18 @@
 }
 
 .tab {
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
   padding: 6px 10px;
   border-bottom: 2px solid transparent;
+  transition: font-weight 0.2s, border-bottom 0.2s;
 }
 
 .tab.active {
+  font-weight: bold;
   border-bottom: 2px solid #000;
 }
+
 
 .proyecto-card {
   border: 1px solid #ddd;
@@ -116,6 +119,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 10px;
+  text-align: left;
 }
 
 .proyecto-info h3 {
