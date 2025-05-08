@@ -1,0 +1,145 @@
+.ranking-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .ranking-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  .ranking-titles h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .ranking-titles h2 {
+    font-size: 36px;
+    color: #e11d48; /* rojo */
+    margin: 5px 0 0;
+  }
+  
+  .ranking-members p {
+    font-size: 14px;
+    text-align: right;
+    margin: 0 0 6px;
+  }
+  
+  .avatars {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+  
+  .avatar-plus {
+    width: 30px;
+    height: 30px;
+    background-color: #f59e0b;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ranking-stats {
+    display: flex;
+    justify-content: flex-end;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .label {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .label.pink {
+    color: #e11d48;
+  }
+  
+  .label.orange {
+    color: #f59e0b;
+  }
+  
+  .value {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .value.red {
+    color: #e11d48;
+  }
+  
+  .value.orange {
+    color: #f59e0b;
+  }
+  
+  .ranking-tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .ranking-tools h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .icons span {
+    font-size: 18px;
+    margin-left: 12px;
+    cursor: pointer;
+  }
+  
+  .ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .ranking-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    border-radius: 999px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+  
+  .ranking-card.destacado {
+    border: 2px solid #f59e0b;
+    background-color: #fffaf0;
+  }
+  
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .nombre {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .porcentaje {
+    font-weight: bold;
+    font-size: 18px;
+  }
