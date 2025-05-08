@@ -13,7 +13,6 @@
   position: relative;
   animation: rotate 20s linear infinite;
   background: conic-gradient(
-    
     #ff7e4f,
     #bbc810,
     #fa68c1,
@@ -22,7 +21,7 @@
     #05bac4,
     #FEA904,
     #ffb127,
-    #FE8520  
+    #FE8520
   );
 }
 
@@ -32,26 +31,12 @@
   background-color: white;
   border-radius: 50%;
   padding: 8px;
-  animation: rotate-reverse 20s linear infinite; /* Nueva animación */
+  transform-origin: center center;
 }
-
-.icon:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
-.icon:nth-child(2) { top: 20%; left: 85%; transform: translate(-50%, -50%); }
-.icon:nth-child(3) { top: 50%; left: 91%; transform: translate(-50%, -50%); }
-.icon:nth-child(4) { top: 80%; left: 80%; transform: translate(-50%, -50%); }
-.icon:nth-child(5) { top: 92%; left: 50%; transform: translate(-50%, -50%); }
-.icon:nth-child(6) { top: 80%; left: 15%; transform: translate(-50%, -50%); }
-.icon:nth-child(7) { top: 50%; left: 0%; transform: translate(-50%, -50%); }
-.icon:nth-child(8) { top: 12%; left: 15%; transform: translate(-50%, -50%); }
 
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
-}
-
-@keyframes rotate-reverse {  
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
 }
 
 .center-circle {
@@ -67,30 +52,13 @@
   align-items: center;
   justify-content: center;
   z-index: 5;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* opcional */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.center-text {
-  text-align: center;
-  z-index: 10;
-}
-
-.center-text h2 {
-  font-size: 28px;
-  font-weight: 800;
-  color: #f89e00;
-  margin: 0;
-}
-
-.center-text p {
-  font-size: 16px;
-  margin: 5px 0 0;
-  color: #333;
-}
-.card-content
-{
+.card-content {
   text-align: center;
 }
+
 .flip-card {
   width: 300px;
   height: 200px;
@@ -123,7 +91,8 @@
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
 .icon.active {
   box-shadow: 0 0 10px #f89e00;
-  transform: scale(1.1);
+  transform: scale(1.1) translate(-50%, -50%);
 }
