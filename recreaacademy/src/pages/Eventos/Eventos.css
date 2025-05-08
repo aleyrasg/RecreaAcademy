@@ -1,0 +1,25 @@
+/* src/pages/Eventos/Eventos.css */
+
+.eventos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .eventos-container ul li {
+    border-bottom: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+    padding-bottom: 8px;
+  }
+  
+  .eventos-container img {
+    transition: transform 0.3s ease;
+  }
+  
+  .eventos-container img:hover {
+    transform: scale(1.03);
+  }
+  
+  @media (max-width: 768px) {
+    .eventos-container .grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
