@@ -1,0 +1,127 @@
+.innovaciones-container {
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .titulo {
+    font-size: 28px;
+    color: #e6007e;
+    margin-bottom: 10px;
+  }
+  
+  .descripcion {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .botones-accion {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .btn-naranja {
+    background-color: #f97316;
+    color: white;
+  }
+  
+  .btn-borde-rosa {
+    background-color: white;
+    color: #e6007e;
+    border: 2px solid #e6007e;
+  }
+  
+  .busqueda-filtros {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .input-busqueda {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+  
+  .btn-filtro {
+    background-color: #eee;
+    color: #333;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 8px 14px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .tab.activo {
+    background-color: #e6007e;
+    color: white;
+  }
+  
+  .tarjetas-destacadas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .tarjeta {
+    padding: 16px;
+    width: 150px;
+    border-radius: 10px;
+    color: #333;
+  }
+  
+  .tarjeta .tarjeta-titulo {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .tarjeta .tarjeta-fecha {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  /* Colores personalizados */
+  .light-orange { background-color: #facc15; }
+  .orange { background-color: #f97316; color: white; }
+  .red { background-color: #ef4444; color: white; }
+  .yellow { background-color: #fde68a; }
+  
+  .recrea-destacado {
+    background-color: #fff7ed;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #f97316;
+  }
+  
+  .recrea-destacado h2 {
+    color: #f97316;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
