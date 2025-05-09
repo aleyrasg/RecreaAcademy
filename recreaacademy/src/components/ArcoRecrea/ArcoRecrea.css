@@ -1,7 +1,7 @@
 .arco-container {
     position: relative;
     width: 400px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     animation: pulso 6s infinite;
   }
   

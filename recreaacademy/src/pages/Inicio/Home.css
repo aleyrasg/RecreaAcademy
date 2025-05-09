@@ -1,15 +1,7 @@
-/* src/pages/Inicio/Inicio.css */
-
 .inicio-container {
     padding: 2rem;
     text-align: center;
     color: #333;
-  }
-  
-  .arco-img {
-    width: 300px;
-    margin: 0 auto 1rem;
-    display: block;
   }
   
   .inicio-content {

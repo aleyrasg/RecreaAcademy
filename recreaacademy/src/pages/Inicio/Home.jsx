@@ -1,8 +1,8 @@
 import React from 'react';
 import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
-import './Home.css';
 import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea';
-import portada from '../../assets/portada-docentes.jpg'; 
+import './Home.css';
+import portada from '../../assets/portada-docentes.jpg'; // Asegúrate de que exista
 
 const testimonios = [
   {
@@ -26,10 +26,8 @@ const Home = () => {
   return (
     <LayoutSubmenu>
       <div className="inicio-container">
-        {/* Arco animado con texto central */}
         <ArcoRecrea />
 
-        {/* Imagen de portada y bienvenida */}
         <div className="inicio-content">
           <img src={portada} alt="Docentes" className="portada-img" />
           <h2 className="frase-principal">
@@ -42,7 +40,6 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Testimonios */}
         <div className="testimonios-section">
           {testimonios.map((t, i) => (
             <div key={i} className="testimonio-card">
@@ -53,7 +50,6 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Botón de opinión */}
         <div className="opinion-btn-container">
           <button className="btn-opinion">Déjanos tu opinión</button>
         </div>
