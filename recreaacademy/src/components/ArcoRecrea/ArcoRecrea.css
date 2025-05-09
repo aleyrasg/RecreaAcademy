@@ -1,0 +1,64 @@
+.arco-container {
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    animation: pulso 6s infinite;
+  }
+  
+  .arco-svg {
+    width: 100%;
+    height: auto;
+  }
+  
+  .arco-path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 0;
+    animation: arcoAnimado 8s linear infinite;
+  }
+  
+  .texto-centro {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .logo-recrea {
+    font-size: 1.8rem;
+    color: #e11d48;
+    margin: 0;
+  }
+  
+  .logo-recrea span {
+    color: #f59e0b;
+  }
+  
+  .anio {
+    font-weight: bold;
+    background: #e11d48;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-top: 4px;
+  }
+  
+  @keyframes arcoAnimado {
+    0% {
+      stroke-dashoffset: 300;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes pulso {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.01);
+    }
+  }

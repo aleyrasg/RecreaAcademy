@@ -1,11 +1,65 @@
-import React from 'react'
-import Layout from '../../components/Layout/Layout';
+import React from 'react';
+import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import './Home.css';
+import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea';
+import portada from '../../assets/portada-docentes.jpg'; 
 
-function Home() {
+const testimonios = [
+  {
+    usuario: 'Usuario',
+    texto: 'Una plataforma innovadora que impulsa el trabajo colaborativo y el liderazgo educativo.',
+    estrellas: 5,
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'Recrea Academy me conectó como un espacio donde puedo compartir y aprender con colegas.',
+    estrellas: 4,
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'Me encantó el diseño y organización de los módulos. ¡Muy útil para fortalecer mi práctica!',
+    estrellas: 5,
+  },
+];
+
+const Home = () => {
   return (
-    <Layout>
-      <h1>Inicio</h1>
-    </Layout>
+    <LayoutSubmenu>
+      <div className="inicio-container">
+        {/* Arco animado con texto central */}
+        <ArcoRecrea />
+
+        {/* Imagen de portada y bienvenida */}
+        <div className="inicio-content">
+          <img src={portada} alt="Docentes" className="portada-img" />
+          <h2 className="frase-principal">
+            Una comunidad para docentes que inspiran y transforman
+          </h2>
+          <button className="btn-empezar">Empieza</button>
+          <h3 className="subtitulo">Más que una plataforma</h3>
+          <p className="descripcion">
+            Un espacio creado por y para docentes de Jalisco que creen en el poder de la educación con propósito en comunidad.
+          </p>
+        </div>
+
+        {/* Testimonios */}
+        <div className="testimonios-section">
+          {testimonios.map((t, i) => (
+            <div key={i} className="testimonio-card">
+              <h4>{t.usuario}</h4>
+              <p className="estrellas">{'⭐'.repeat(t.estrellas)}</p>
+              <p>{t.texto}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Botón de opinión */}
+        <div className="opinion-btn-container">
+          <button className="btn-opinion">Déjanos tu opinión</button>
+        </div>
+      </div>
+    </LayoutSubmenu>
   );
-}
-export default Home
+};
+
+export default Home;
