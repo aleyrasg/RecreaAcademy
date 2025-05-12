@@ -13,10 +13,9 @@ import App from './App';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
+    element: <Home />
   },
   {
-    
     path: '/home',
     element: <Home />,
   },
