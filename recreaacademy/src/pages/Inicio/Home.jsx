@@ -26,7 +26,12 @@ const Home = () => {
   return (
     <LayoutSubmenu>
       <div className="inicio-container">
-        <ArcoRecrea />
+        <ArcoRecrea isOnClickDisabled displayHalf>
+          <div className="texto-centro-arco">
+            <h1>Recrea <span>Academy</span></h1>
+            <div class='anio-container'><p className="anio">2025</p></div>
+          </div>
+        </ArcoRecrea>
 
         <div className="inicio-content">
           <img src={portada} alt="Docentes" className="portada-img" />
