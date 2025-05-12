@@ -12,6 +12,9 @@ const miembros = [
 const Ranking = () => {
   return (
     <LayoutSubmenu>
+      <div className="ranking-header">
+        <h1 className="titulo">Ranking</h1>
+      </div>
       <div className="ranking-container">
         {/* Encabezado */}
         <div className="ranking-header">
