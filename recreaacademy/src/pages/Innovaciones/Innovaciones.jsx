@@ -1,74 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Sidebar from '../../components/Sidebar/sidebar';
 import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
 import './Innovaciones.css';
 
 function Innovaciones() {
-  const [filtro, setFiltro] = useState("Destacados");
-
-  const todos = [
-    {
-      icono: "lightbulb",
-      title: "Recrea Academy lanza su primer “Reto Pedagógico Estatal",
-      date: "5 de agosto",
-      color: "light-orange",
-      tipo: ["Destacados", "Todas"],
-      nivel: "principiante"
-    },
-    {
-      icono: "science",
-      title: "Proyectos de ciencias para educación básica",
-      date: "2 de agosto",
-      color: "orange",
-      tipo: ["Todas", "Destacados"],
-      nivel: "intermedio"
-    },
-    {
-      icono: "extension",
-      title: "Resuelve un problema de lógica",
-      date: "1 de agosto",
-      color: "red",
-      tipo: ["Por nivel", "Todas"],
-      nivel: "avanzado"
-    },
-    {
-      icono: "wb_sunny",
-      title: "Promueve el bienestar socioemocional",
-      date: "30 de junio",
-      color: "yellow",
-      tipo: ["Rutas", "Todas"],
-      nivel: "intermedio"
-    },
-    {
-      icono: "lightbulb",
-      title: "Webinar: Estrategias digitales",
-      date: "25 de junio",
-      color: "orange",
-      tipo: ["Webinars", "Todas"],
-      nivel: "principiante"
-    }
+  const destacados = [
+    { title: 'Recrea Academy lanza su primer “Reto Pedagógico Estatal”', date: '5 de agosto', color: 'light-orange' },
+    { title: 'Proyectos de ciencias para educación básica', date: '2 de agosto', color: 'orange' },
+    { title: 'Resuelve un problema de lógica', date: '1 de agosto', color: 'red' },
+    { title: 'Promueve el bienestar socioemocional', date: '30 de junio', color: 'yellow' }
   ];
-
-  const destacados = todos.filter(item => item.tipo.includes(filtro));
-
-  const handleExplorar = () => {
-    setFiltro("Todas");
-  };
-
-  const handleMicrocursos = () => {
-    alert("Funcionalidad de microcursos aún no implementada.");
-  };
 
   return (
     <LayoutSubmenu>
-      <h1 className="titulo">Innovaciones</h1>
       <div className="innovaciones-container">
+        <h1 className="titulo">Innovaciones</h1>
         <p className="descripcion">
-          Actualízate como educador. Encuentra rutas, microcursos y webinars para explorar nuevas tendencias y metodologías.
+          Actualízate como educador. Encuentra rutas microcursos y webinars para explorar nuevas tendencias y metodologías.
         </p>
 
         <div className="botones-accion">
-          <button className="btn btn-naranja" onClick={handleExplorar}>Explorar innovaciones</button>
-          <button className="btn btn-borde-rosa" onClick={handleMicrocursos}>Ver microcursos</button>
+          <button className="btn btn-naranja">Explorar innovaciones</button>
+          <button className="btn btn-borde-rosa">Ver microcursos</button>
         </div>
 
         <div className="busqueda-filtros">
@@ -77,66 +30,21 @@ function Innovaciones() {
         </div>
 
         <div className="tabs">
-          {["Destacados", "Todas", "Por nivel", "Rutas", "Webinars"].map(tab => (
-            <button
-              key={tab}
-              className={`tab ${filtro === tab ? "activo" : ""}`}
-              onClick={() => setFiltro(tab)}
-            >
-              {tab}
-            </button>
-          ))}
+          <button className="tab activo">Destacados</button>
+          <button className="tab">Todas</button>
+          <button className="tab">Por nivel</button>
+          <button className="tab">Rutas</button>
+          <button className="tab">Webinars</button>
         </div>
 
-        {filtro === "Por nivel" ? (
-          <>
-            {["principiante", "intermedio", "avanzado"].map(nivel => (
-  <div key={nivel} className="nivel-bloque">
-    <h3 className={`nivel-titulo ${nivel}`}>
-      {nivel.charAt(0).toUpperCase() + nivel.slice(1)}
-    </h3>
-    <div className="tarjetas-destacadas">
-      {todos
-        .filter(item => item.nivel === nivel)
-        .map((item, idx) => (
-          <div key={idx} className={`tarjeta ${item.color}`}>
-            <div className="tarjeta-cuerpo">
-              <div className="tarjeta-icono">
-                <span className="material-symbols-outlined">{item.icono}</span>
-              </div>
-              <div className="tarjeta-titulo">
-                <p>{item.title}</p>
-              </div>
+        <div className="tarjetas-destacadas">
+          {destacados.map((item, idx) => (
+            <div key={idx} className={`tarjeta ${item.color}`}>
+              <p className="tarjeta-titulo">{item.title}</p>
+              <p className="tarjeta-fecha">{item.date}</p>
             </div>
-            <div className="tarjeta-fecha">
-              <p>{item.date}</p>
-            </div>
-          </div>
-        ))}
-    </div>
-  </div>
-))}
-
-          </>
-        ) : (
-          <div className="tarjetas-destacadas">
-            {destacados.map((item, idx) => (
-              <div key={idx} className={`tarjeta ${item.color}`}>
-                <div className="tarjeta-cuerpo">
-                  <div className="tarjeta-icono">
-                    <span className="material-symbols-outlined">{item.icono}</span>
-                  </div>
-                  <div className="tarjeta-titulo">
-                    <p>{item.title}</p>
-                  </div>
-                </div>
-                <div className="tarjeta-fecha">
-                  <p>{item.date}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+          ))}
+        </div>
 
         <div className="recrea-destacado">
           <h2>Recrea Academy lanza su primer “Reto Pedagógico Estatal”</h2>

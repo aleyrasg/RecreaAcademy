@@ -56,20 +56,32 @@ const Ranking = () => {
         </div>
 
         {/* Lista de miembros */}
-        <div className="ranking-list">
-          {miembros.map((m, i) => (
-            <div
-              key={i}
-              className={`ranking-card ${m.destacado ? 'destacado' : ''}`}
-            >
-              <div className="info">
-                <div className="avatar" />
-                <span className="nombre">{m.nombre}</span>
-              </div>
-              <span className="porcentaje">{m.porcentaje}%</span>
-            </div>
-          ))}
+        <div className="ranking-table">
+  <div className="ranking-header-row">
+    <span>#</span>
+    <span>Nombre</span>
+    <span>Puntaje</span>
+  </div>
+
+  {miembros
+    .sort((a, b) => b.porcentaje - a.porcentaje)
+    .map((m, i) => (
+      <div
+        key={i}
+        className={`ranking-row ${i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : ''}`}
+      >
+        <span className="ranking-pos">{i + 1}</span>
+        <div className="ranking-user">
+          <div className="avatar-sm"></div>
+          <span>{m.nombre}</span>
         </div>
+        <div className="ranking-score">
+          <div className="bar" style={{ width: `${m.porcentaje}%` }}></div>
+          <span>{m.porcentaje}%</span>
+        </div>
+      </div>
+    ))}
+</div>
       </div>
     </LayoutSubmenu>
   );
