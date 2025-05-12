@@ -1,10 +1,20 @@
-import React from "react";
-import Layout from "../../components/Layout/Layout"; // Ajusta si la ruta cambia
+import React, { useState } from "react";
+import Layout from "../../components/Layout/Layout";
 import "./Colaboraciones.css";
-import { TextField, InputAdornment, Button } from "@mui/material";
+import {
+  TextField,
+  InputAdornment,
+  Button,
+  Select,
+  MenuItem,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
-import FilterListIcon from "@mui/icons-material/FilterList"; // Agrega esto arriba con los demás imports
+import FilterListIcon from "@mui/icons-material/FilterList";
 
 const users = [
   { id: 1, color: "#FFB127" },
@@ -15,16 +25,53 @@ const users = [
   { id: 6, color: "#FC083B" },
 ];
 
+const initialProjects = [
+  {
+    id: 1,
+    title: "Aplicación de IA para el aula",
+    description: "Desarrollar una aplicación móvil basada en inteligencia artificial para promover el aprendizaje en estudiantes",
+    category: "Destacados",
+  },
+  {
+    id: 2,
+    title: "Recurso abierto de historia",
+    description: "Crear un recurso educativo interactivo para enseñar historia antigua",
+    category: "Nuevos",
+  },
+];
+
 function Colaboraciones() {
+  const [selectedTab, setSelectedTab] = useState("Destacados");
+  const [projects, setProjects] = useState(initialProjects);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("Todos");
+  const [openDialog, setOpenDialog] = useState(false);
+  const [newProject, setNewProject] = useState({ title: "", description: "", category: "Destacados" });
+
+  const handleAddProject = () => {
+    const id = projects.length + 1;
+    const updatedProjects = [...projects, { id, ...newProject }];
+    setProjects(updatedProjects);
+    setOpenDialog(false);
+    setNewProject({ title: "", description: "", category: "Destacados" });
+  };
+
+  const filteredProjects = projects.filter(
+    (proj) =>
+      proj.category === selectedTab &&
+      proj.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (filter === "Todos" || proj.category === filter)
+  );
+
   return (
     <Layout>
       <div className="colaboraciones-header">
         <h1 className="colaboraciones-title">Colaboraciones</h1>
         <p className="colaboraciones-subtitle">
-          Conecta con otros docentes, postula ideas y construyan juntos recursos
-          educativos!
+          Conecta con otros docentes, postula ideas y construyan juntos recursos educativos!
         </p>
       </div>
+
       <div className="carousel-wrapper">
         <div className="carousel-track">
           {[...users, ...users].map((user, index) => (
@@ -48,7 +95,8 @@ function Colaboraciones() {
           placeholder="Buscar proyectos"
           variant="outlined"
           size="small"
-          width="500px"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -72,6 +120,7 @@ function Colaboraciones() {
         <Button
           variant="contained"
           startIcon={<AddIcon />}
+          onClick={() => setOpenDialog(true)}
           sx={{
             borderRadius: "10px",
             backgroundColor: "#FF004C",
@@ -85,104 +134,116 @@ function Colaboraciones() {
           Nuevo proyecto
         </Button>
       </div>
+
       <div className="proyectos-section">
         <div className="proyectos-tabs">
-          <span className="tab active">Destacados</span>
-          <span className="tab">Nuevos</span>
-          <span className="tab">Participando</span>
-          <span className="tab">Mis propuestas</span>
-          <Button
-            variant="outlined"
-            startIcon={<FilterListIcon />}
+          {["Destacados", "Nuevos", "Participando", "Mis propuestas"].map((tab) => (
+            <span
+              key={tab}
+              className={`tab ${selectedTab === tab ? "active" : ""}`}
+              onClick={() => setSelectedTab(tab)}
+            >
+              {tab}
+            </span>
+          ))}
+
+          <Select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            size="small"
             sx={{
-              borderRadius: "10px",
-              textTransform: "none",
-              fontWeight: "bold",
               marginLeft: "auto",
+              borderRadius: "10px",
+              fontWeight: "bold",
               color: "#B0B0B0",
               borderColor: "#B0B0B0",
-              "&:hover": {
-                backgroundColor: "#fff",
-                borderColor: "#B0B0B0",
-              },
             }}
           >
-            Filtros
-          </Button>
+            <MenuItem value="Todos">Todos</MenuItem>
+            <MenuItem value="Primaria">Primaria</MenuItem>
+            <MenuItem value="Secundaria">Secundaria</MenuItem>
+          </Select>
         </div>
 
-        <div className="proyecto-card">
-          <div className="proyecto-info">
-            <h3>Aplicación de IA para el aula</h3>
-            <p>
-              Desarrollar una aplicación móvil basada en inteligencia artificial
-              para promover el aprendizaje en estudiantes
-            </p>
-          </div>
-          <div className="proyecto-actions">
-            <Button
-              variant="outlined"
-              sx={{ borderRadius: "10px", textTransform: "none", color: "#B0B0B0", borderColor: "#B0B0B0",
-                "&:hover": {
-                  backgroundColor: "#fff",
+        {filteredProjects.map((project) => (
+          <div className="proyecto-card" key={project.id}>
+            <div className="proyecto-info">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+            </div>
+            <div className="proyecto-actions">
+              <Button
+                variant="outlined"
+                sx={{
+                  borderRadius: "10px",
+                  textTransform: "none",
+                  color: "#B0B0B0",
                   borderColor: "#B0B0B0",
-                }, }}
-            >
-              Ver proyecto
-            </Button>
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#FF004C",
-                borderRadius: "10px",
-                textTransform: "none",
-                fontWeight: "bold",
-                "&:hover": {
-                  backgroundColor: "#d60042",
-                },
-              }}
-            >
-              Unirme
-            </Button>
+                  "&:hover": {
+                    backgroundColor: "#fff",
+                    borderColor: "#B0B0B0",
+                  },
+                }}
+              >
+                Ver proyecto
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#FF004C",
+                  borderRadius: "10px",
+                  textTransform: "none",
+                  fontWeight: "bold",
+                  "&:hover": {
+                    backgroundColor: "#d60042",
+                  },
+                }}
+              >
+                Unirme
+              </Button>
+            </div>
           </div>
-        </div>
-
-        <div className="proyecto-card">
-          <div className="proyecto-info">
-            <h3>Recurso abierto de historia</h3>
-            <p>
-              Crear un recurso educativo interactivo para enseñar historia
-              antigua
-            </p>
-          </div>
-          <div className="proyecto-actions">
-            <Button
-              variant="outlined"
-              sx={{ borderRadius: "10px", textTransform: "none", color: "#B0B0B0", borderColor: "#B0B0B0",
-                "&:hover": {
-                  backgroundColor: "#fff",
-                  borderColor: "#B0B0B0",
-                }, }}
-            >
-              Ver proyecto
-            </Button>
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#FF004C",
-                borderRadius: "10px",
-                textTransform: "none",
-                fontWeight: "bold",
-                "&:hover": {
-                  backgroundColor: "#d60042",
-                },
-              }}
-            >
-              Unirme
-            </Button>
-          </div>
-        </div>
+        ))}
       </div>
+
+      <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
+        <DialogTitle>Nuevo Proyecto</DialogTitle>
+        <DialogContent>
+          <TextField
+            label="Título"
+            fullWidth
+            margin="normal"
+            value={newProject.title}
+            onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
+          />
+          <TextField
+            label="Descripción"
+            fullWidth
+            multiline
+            rows={4}
+            margin="normal"
+            value={newProject.description}
+            onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
+          />
+          <Select
+            fullWidth
+            value={newProject.category}
+            onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
+            sx={{ marginTop: 2 }}
+          >
+            <MenuItem value="Destacados">Destacados</MenuItem>
+            <MenuItem value="Nuevos">Nuevos</MenuItem>
+            <MenuItem value="Participando">Participando</MenuItem>
+            <MenuItem value="Mis propuestas">Mis propuestas</MenuItem>
+          </Select>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
+          <Button onClick={handleAddProject} variant="contained" color="primary">
+            Crear
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Layout>
   );
 }
