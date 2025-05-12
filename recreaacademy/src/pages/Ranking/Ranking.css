@@ -75,6 +75,11 @@
     z-index: 0;
     border-radius: 8px;
   }
+  .medalla {
+    width: 70px;
+    display: block;
+    margin-top: 10px;
+  }
   
   /* Medallas */
   .gold .ranking-pos::before {
