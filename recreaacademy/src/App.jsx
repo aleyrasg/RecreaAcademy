@@ -2,6 +2,8 @@
 import './App.css'
 import React from 'react';
 import Layout from './components/Layout/Layout';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 
 function App() {
