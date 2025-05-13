@@ -127,14 +127,11 @@ export default function Eventos() {
 
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={30}
-          slidesPerView={1.2}
-          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          spaceBetween={1}
+          slidesPerView={3}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
           loop={true}
-          breakpoints={{
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
+          style={{ paddingBottom: 40 }}
         >
           {conferencistas.map((c, i) => (
             <SwiperSlide key={i}>
@@ -142,16 +139,26 @@ export default function Eventos() {
                 sx={{
                   backgroundColor: c.color,
                   color: "white",
-                  animation: "float 3s ease-in-out infinite",
                   borderRadius: 3,
+                  width: 250,
+                  height: 420,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  boxShadow: 3,
+                  animation: `bounce-${i} 1.9s ease infinite`,
                 }}
               >
                 <CardMedia
                   component="img"
-                  height="200"
+                  height="240"
                   image={c.imagen}
                   alt={c.nombre}
-                  style={{ objectFit: "cover", borderRadius: "12px 12px 0 0" }}
+                  sx={{
+                    objectFit: "cover",
+                    borderTopLeftRadius: "12px",
+                    borderTopRightRadius: "12px",
+                  }}
                 />
                 <CardContent>
                   <Typography variant="h6" fontWeight="bold">
@@ -164,6 +171,22 @@ export default function Eventos() {
           ))}
         </Swiper>
       </Box>
+      <style>{`
+        ${conferencistas
+          .map(
+            (_, i) => `
+          @keyframes bounce-${i} {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
+          }
+        `
+          )
+          .join("\n")}
+      `}</style>
     </LayoutSubmenu>
   );
 }
