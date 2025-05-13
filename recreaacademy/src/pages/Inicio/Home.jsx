@@ -23,6 +23,38 @@ const testimonios = [
     texto: 'Me encantó el diseño y organización de los módulos. ¡Muy útil para fortalecer mi práctica!',
     estrellas: 5,
   },
+  {
+    usuario: 'Usuario',
+    texto: 'Gracias a Recrea ahora tengo acceso a recursos actualizados y confiables.'
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'Las recomendaciones que ofrece la plataforma han mejorado mi planeación diaria.'
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'Siento que pertenezco a una comunidad real de aprendizaje entre docentes.'
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'La sección de innovaciones me inspira a probar nuevas metodologías cada semana.'
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'Gracias a esta plataforma, he podido compartir recursos útiles con colegas.'
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'Una excelente herramienta para el desarrollo profesional docente.'
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'La navegación es sencilla y las actividades están muy bien estructuradas.'
+  },
+  {
+    usuario: 'Usuario',
+    texto: 'Recrea Academy me ha motivado a innovar en mis clases con nuevas metodologías.'
+  }
 ];
 
 const Home = () => {
@@ -58,10 +90,10 @@ const Home = () => {
             centeredSlides={true}
             slidesPerView={'auto'}
             coverflowEffect={{
-              rotate: 20,
+              rotate: 0,
               stretch: 0,
-              depth: 100,
-              modifier: 2.5,
+              depth: 250,
+              modifier: 3,
               slideShadows: true,
             }}
             pagination={{ clickable: true }}
@@ -77,7 +109,6 @@ const Home = () => {
               <SwiperSlide key={i}>
                 <div className="testimonio-card">
                   <h4>{t.usuario}</h4>
-                  <p className="estrellas">{'⭐'.repeat(t.estrellas)}</p>
                   <p>{t.texto}</p>
                 </div>
               </SwiperSlide>
