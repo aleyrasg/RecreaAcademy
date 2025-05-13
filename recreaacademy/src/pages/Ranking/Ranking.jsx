@@ -83,8 +83,8 @@ const Ranking = () => {
         ))}
 
         <Box className="medallas">
-          <img src="/assets/medalla.png" alt="medalla" className="medalla" />
-          <img src="/assets/medalla.png" alt="medalla" className="medalla" />
+          <img src="../src/assets/medalla.png" alt="medalla" className="medalla" />
+          <img src="../src/assets/medalla.png" alt="medalla" className="medalla" />
         </Box>
       </Box>
     </LayoutSubmenu>
