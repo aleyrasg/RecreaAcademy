@@ -17,7 +17,6 @@ import carlosImg from "../../assets/carlos-anaya.png";
 import elisaImg from "../../assets/elisa-guerra.png";
 import manuelImg from "../../assets/manuel-obrien.png";
 
-
 const eventos = [
   { fecha: "9 de mayo", titulo: "Encuentro de Liderazgo Educativo" },
   { fecha: "11 de junio", titulo: "Asamblea de Academia" },
@@ -60,7 +59,7 @@ export default function Eventos() {
         >
           {/* IZQUIERDA: Eventos */}
           <Box sx={{ flex: 1, minWidth: "60%" }}>
-            <Typography variant="h4" color="error" gutterBottom>
+            <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold", color: "#FC083B" }}>
               Próximos eventos
             </Typography>
             <Typography variant="h6" sx={{ mb: 2 }}>
@@ -68,14 +67,14 @@ export default function Eventos() {
             </Typography>
 
             {eventos.map((e, i) => (
-              <Box
-                key={i}
-                sx={{ display: "flex", alignItems: "center", mb: 1 }}
-              >
-                <CalendarMonthIcon sx={{ color: "error.main", mr: 1 }} />
-                <Typography variant="body1">
-                  <b>{e.fecha}</b> — {e.titulo}
-                </Typography>
+              <Box key={i} sx={{ mb: 2 }}>
+                <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
+                  <CalendarMonthIcon sx={{ color: "#FC083B", mr: 1 }} />
+                  <Typography variant="body1">
+                    <b>{e.fecha}</b> — {e.titulo}
+                  </Typography>
+                </Box>
+                <Box sx={{ borderBottom: "1px solid #ccc", ml: 4 }} />
               </Box>
             ))}
           </Box>
@@ -121,7 +120,7 @@ export default function Eventos() {
         </Box>
 
         {/* CONFERENCISTAS */}
-        <Typography variant="h4" color="error" sx={{ mt: 4, mb: 2 }}>
+        <Typography variant="h4" sx={{ mt: 4, mb: 2, color: "#FC083B" }}>
           Conferencistas
         </Typography>
 
@@ -147,6 +146,7 @@ export default function Eventos() {
                   justifyContent: "flex-start",
                   boxShadow: 3,
                   animation: `bounce-${i} 1.9s ease infinite`,
+                  animationDelay: `${i * 0.4}s`,
                 }}
               >
                 <CardMedia
