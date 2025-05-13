@@ -49,7 +49,7 @@ const conferencistas = [
 export default function Eventos() {
   return (
     <LayoutSubmenu>
-      <Box className="eventos-container" sx={{ padding: 4, width: "100%" }}>
+      <Box className="eventos-container" sx={{ px: 4, pt: 4, pb: 2, width: "100%" }}>
         <Box
           sx={{
             display: "flex",
@@ -120,7 +120,7 @@ export default function Eventos() {
         </Box>
 
         {/* CONFERENCISTAS */}
-        <Typography variant="h4" sx={{ mt: 4, mb: 2, color: "#FC083B" }}>
+        <Typography variant="h4" sx={{ mt: 2, mb: 2, color: "#FC083B" }}>
           Conferencistas
         </Typography>
 

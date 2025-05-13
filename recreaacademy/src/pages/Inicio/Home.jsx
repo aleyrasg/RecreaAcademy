@@ -1,6 +1,5 @@
 import React from 'react';
 import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
-import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea';
 import './Home.css';
 
 const testimonios = [
@@ -25,10 +24,17 @@ const Home = () => {
   return (
     <LayoutSubmenu>
       <div className="inicio-container">
-        <ArcoRecrea />
+        <video
+          className="video-inicio"
+          src={`${import.meta.env.BASE_URL}src/assets/video-intro.mp4`}
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
 
         <div className="inicio-content">
-          <img src={`${import.meta.env.BASE_URL}assets/portada-docentes.jpg`} alt="Docentes" className="portada-img" />
+          <img src={`${import.meta.env.BASE_URL}src/assets/portada-docentes.jpg`} alt="Docentes" className="portada-img" />
           <h2 className="frase-principal">
             Una comunidad para docentes que inspiran y transforman
           </h2>

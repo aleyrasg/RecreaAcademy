@@ -10,6 +10,7 @@ import {
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Ranking.css';
 import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import medalla from '../../assets/medalla.png';
 
 const miembros = [
   { nombre: 'Luis Castañeda', porcentaje: 78 },
@@ -20,8 +21,22 @@ const miembros = [
 const Ranking = () => {
   return (
     <LayoutSubmenu>
-      <Box sx={{ px: 4, py: 3 }}>
-        <Typography variant="h5" fontWeight="bold">Brújula Creativa</Typography>
+      <Box sx={{ px: 4, py: 3, position: 'relative' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Typography variant="h5" fontWeight="bold">Brújula Creativa</Typography>
+
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="body2" fontWeight="medium" sx={{ color: '#FC083B' }}>Proyectos Activos</Typography>
+              <Typography variant="h6" fontWeight="bold">16</Typography>
+            </Box>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="body2" fontWeight="medium" sx={{ color: '#FB8C00' }}>Próximos Proyectos</Typography>
+              <Typography variant="h6" fontWeight="bold">08</Typography>
+            </Box>
+            <Avatar sx={{ bgcolor: '#ccc', width: 40, height: 40 }} />
+          </Box>
+        </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 3 }}>
           <Typography variant="h3" sx={{ color: '#f44336', fontWeight: 700 }}>Ranking</Typography>
@@ -62,30 +77,29 @@ const Ranking = () => {
               backgroundColor: miembro.destacado ? '#fffdf7' : '#fff',
             }}
           >
-            <CardContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Avatar sx={{ mr: 2, bgcolor: '#ccc' }} />
-                <Typography fontWeight={miembro.destacado ? 'bold' : 'normal'}>
-                  {miembro.nombre}
-                </Typography>
-              </Box>
+            <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <img src={medalla} alt="medalla" style={{ width: 40 }} />
 
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant="h6" sx={{ mr: 1 }}>
-                  {miembro.porcentaje}%
-                </Typography>
-                <IconButton>
-                  <ArrowForwardIosIcon fontSize="small" />
-                </IconButton>
+              <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Avatar sx={{ mr: 2, bgcolor: '#ccc' }} />
+                  <Typography fontWeight={miembro.destacado ? 'bold' : 'normal'}>
+                    {miembro.nombre}
+                  </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Typography variant="h6" sx={{ mr: 1 }}>
+                    {miembro.porcentaje}%
+                  </Typography>
+                  <IconButton>
+                    <ArrowForwardIosIcon fontSize="small" />
+                  </IconButton>
+                </Box>
               </Box>
             </CardContent>
           </Card>
         ))}
-
-        <Box className="medallas">
-          <img src="../src/assets/medalla.png" alt="medalla" className="medalla" />
-          <img src="../src/assets/medalla.png" alt="medalla" className="medalla" />
-        </Box>
       </Box>
     </LayoutSubmenu>
   );
