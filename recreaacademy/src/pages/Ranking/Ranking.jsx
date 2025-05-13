@@ -1,7 +1,15 @@
-// src/pages/Ranking/Ranking.jsx
 import React from 'react';
-import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import {
+  Box,
+  Typography,
+  Avatar,
+  Card,
+  CardContent,
+  IconButton,
+} from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Ranking.css';
+import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
 
 const miembros = [
   { nombre: 'Luis Castañeda', porcentaje: 78 },
@@ -12,65 +20,73 @@ const miembros = [
 const Ranking = () => {
   return (
     <LayoutSubmenu>
-      <div className="ranking-header">
-        <h1 className="titulo">Ranking</h1>
-      </div>
-      <div className="ranking-container">
-        {/* Encabezado */}
-        <div className="ranking-header">
-          <div className="ranking-titles">
-            <h1>Brújula Creativa</h1>
-            <h2>Raking</h2>
-          </div>
-          <div className="ranking-members">
-            <p>Integrantes del equipo (26)</p>
-            <div className="avatars">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="avatar" />
+      <Box sx={{ px: 4, py: 3 }}>
+        <Typography variant="h5" fontWeight="bold">Brújula Creativa</Typography>
+
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 3 }}>
+          <Typography variant="h3" sx={{ color: '#f44336', fontWeight: 700 }}>Ranking</Typography>
+          <Box>
+            <Typography variant="body2" fontWeight="medium">Integrantes del equipo (26)</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 0.5 }}>
+              {[1, 2, 3, 4].map((i) => (
+                <Avatar key={i} sx={{ width: 30, height: 30, bgcolor: '#ddd' }} />
               ))}
-              <div className="avatar-plus">20+</div>
-            </div>
-          </div>
-        </div>
+              <Box sx={{
+                width: 30,
+                height: 30,
+                borderRadius: '50%',
+                bgcolor: 'orange',
+                color: '#fff',
+                fontSize: '0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                20+
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
-        {/* Indicadores de proyectos */}
-        <div className="ranking-stats">
-          <div>
-            <p className="label pink">Proyectos Activos</p>
-            <p className="value red">16</p>
-          </div>
-          <div>
-            <p className="label orange">Próximos Proyectos</p>
-            <p className="value orange">08</p>
-          </div>
-        </div>
+        <Typography variant="h6" sx={{ mb: 2 }}>Desempeño del equipo</Typography>
 
-        {/* Barra superior de búsqueda */}
-        <div className="ranking-tools">
-          <h3>Desempeño del equipo</h3>
-          <div className="icons">
-            <span>🔍</span>
-            <span>⚙️</span>
-            <span>📅</span>
-          </div>
-        </div>
+        {miembros.map((miembro, index) => (
+          <Card
+            key={index}
+            variant="outlined"
+            sx={{
+              mb: 2,
+              borderColor: miembro.destacado ? 'orange' : '#e0e0e0',
+              boxShadow: miembro.destacado ? '0 0 12px rgba(255,165,0,0.3)' : '',
+              borderWidth: miembro.destacado ? '2px' : '1px',
+              backgroundColor: miembro.destacado ? '#fffdf7' : '#fff',
+            }}
+          >
+            <CardContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Avatar sx={{ mr: 2, bgcolor: '#ccc' }} />
+                <Typography fontWeight={miembro.destacado ? 'bold' : 'normal'}>
+                  {miembro.nombre}
+                </Typography>
+              </Box>
 
-        {/* Lista de miembros */}
-        <div className="ranking-list">
-          {miembros.map((m, i) => (
-            <div
-              key={i}
-              className={`ranking-card ${m.destacado ? 'destacado' : ''}`}
-            >
-              <div className="info">
-                <div className="avatar" />
-                <span className="nombre">{m.nombre}</span>
-              </div>
-              <span className="porcentaje">{m.porcentaje}%</span>
-            </div>
-          ))}
-        </div>
-      </div>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Typography variant="h6" sx={{ mr: 1 }}>
+                  {miembro.porcentaje}%
+                </Typography>
+                <IconButton>
+                  <ArrowForwardIosIcon fontSize="small" />
+                </IconButton>
+              </Box>
+            </CardContent>
+          </Card>
+        ))}
+
+        <Box className="medallas">
+          <img src="../src/assets/medalla.png" alt="medalla" className="medalla" />
+          <img src="../src/assets/medalla.png" alt="medalla" className="medalla" />
+        </Box>
+      </Box>
     </LayoutSubmenu>
   );
 };

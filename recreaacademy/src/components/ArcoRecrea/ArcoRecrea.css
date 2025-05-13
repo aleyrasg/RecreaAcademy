@@ -1,66 +1,83 @@
 .arco-container {
     position: relative;
-    width: 400px;
-    margin: 0 auto 2rem;
-    animation: pulso 6s infinite;
+    width: 700px;
+    height: 350px;
+    margin: 0 auto;
   }
   
   .arco-svg {
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
   }
   
-  .arco-path {
-    stroke-dasharray: 300;
-    stroke-dashoffset: 0;
-    animation: arcoAnimado 8s linear infinite;
-  }
-  
-  .texto-centro {
+  .iconos-rotatorios {
     position: absolute;
-    top: 40%;
+    top: 0;
+    left: 0;
+    width: 700px;
+    height: 350px;
+    animation: rotate-circle 25s linear infinite;
+    transform-origin: center bottom;
+    z-index: 2;
+  }
+  
+  .icono {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    animation: rotate-reverse 25s linear infinite;
+  }
+  
+  /* Posiciones ajustadas para nuevo arco */
+  .icono-0 { top: 270px; left: 100px; }
+  .icono-1 { top: 190px; left: 200px; }
+  .icono-2 { top: 120px; left: 340px; }
+  .icono-3 { top: 190px; right: 200px; }
+  .icono-4 { top: 270px; right: 100px; }
+  
+  .texto-centro-arco {
+    position: absolute;
+    top: 140px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     text-align: center;
+    z-index: 3;
   }
   
-  .logo-recrea {
-    padding-top: 200px;
-    padding-left: 35px;
-    font-size: 1.8rem;
-    color: #e11d48;
+  .texto-centro-arco h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
     margin: 0;
+    color: #e11d48;
   }
   
-  .logo-recrea span {
+  .texto-centro-arco h1 span {
     color: #f59e0b;
   }
   
   .anio {
+    font-size: 0.9rem;
     font-weight: bold;
     background: #e11d48;
     color: white;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 0.8rem;
+    border-radius: 10px;
+    padding: 4px 12px;
     display: inline-block;
-    margin-top: 4px;
+    margin-top: 6px;
   }
   
-  @keyframes arcoAnimado {
-    0% {
-      stroke-dashoffset: 300;
-    }
-    100% {
-      stroke-dashoffset: 0;
-    }
+  @keyframes rotate-circle {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
   }
   
-  @keyframes pulso {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.01);
-    }
+  @keyframes rotate-reverse {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
   }
