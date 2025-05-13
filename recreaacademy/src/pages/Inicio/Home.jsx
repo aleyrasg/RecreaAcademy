@@ -1,6 +1,11 @@
 import React from 'react';
 import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
 import './Home.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
 const testimonios = [
   {
@@ -21,6 +26,7 @@ const testimonios = [
 ];
 
 const Home = () => {
+
   return (
     <LayoutSubmenu>
       <div className="inicio-container">
@@ -46,13 +52,37 @@ const Home = () => {
         </div>
 
         <div className="testimonios-section">
-          {testimonios.map((t, i) => (
-            <div key={i} className="testimonio-card">
-              <h4>{t.usuario}</h4>
-              <p className="estrellas">{'⭐'.repeat(t.estrellas)}</p>
-              <p>{t.texto}</p>
-            </div>
-          ))}
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            coverflowEffect={{
+              rotate: 20,
+              stretch: 0,
+              depth: 100,
+              modifier: 2.5,
+              slideShadows: true,
+            }}
+            pagination={{ clickable: true }}
+            modules={[EffectCoverflow, Pagination, Autoplay]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            className="testimonios-swiper"
+          >
+            {testimonios.map((t, i) => (
+              <SwiperSlide key={i}>
+                <div className="testimonio-card">
+                  <h4>{t.usuario}</h4>
+                  <p className="estrellas">{'⭐'.repeat(t.estrellas)}</p>
+                  <p>{t.texto}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         <div className="opinion-btn-container">

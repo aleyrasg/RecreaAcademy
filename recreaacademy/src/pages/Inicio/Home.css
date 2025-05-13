@@ -45,19 +45,19 @@
   }
   
   .testimonios-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 2rem 0;
   }
   
   .testimonio-card {
-    background: #f5f5f5;
-    padding: 1rem;
-    border-radius: 12px;
-    width: 250px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 260px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   }
   
   .testimonio-card h4 {
@@ -90,4 +90,20 @@
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 20px;
+}
+
+.testimonios-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonios-swiper .swiper-pagination-bullet {
+  background-color: #e11d48;
+  opacity: 0.6;
+}
+
+.testimonios-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
 }
