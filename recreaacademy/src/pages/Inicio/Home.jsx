@@ -2,7 +2,6 @@ import React from 'react';
 import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
 import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea';
 import './Home.css';
-import portada from '../../assets/portada-docentes.jpg'; // Asegúrate de que exista
 
 const testimonios = [
   {
@@ -29,7 +28,7 @@ const Home = () => {
         <ArcoRecrea />
 
         <div className="inicio-content">
-          <img src={portada} alt="Docentes" className="portada-img" />
+          <img src={`${import.meta.env.BASE_URL}assets/portada-docentes.jpg`} alt="Docentes" className="portada-img" />
           <h2 className="frase-principal">
             Una comunidad para docentes que inspiran y transforman
           </h2>
