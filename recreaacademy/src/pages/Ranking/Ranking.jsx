@@ -39,7 +39,7 @@ const Ranking = () => {
         </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 3 }}>
-          <Typography variant="h3" sx={{ color: '#f44336', fontWeight: 700 }}>Ranking</Typography>
+          <h1>Ranking</h1>
           <Box>
             <Typography variant="body2" fontWeight="medium">Integrantes del equipo (26)</Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 0.5 }}>

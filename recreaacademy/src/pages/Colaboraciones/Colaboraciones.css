@@ -1,5 +1,5 @@
 .colaboraciones-header {
-  text-align: left;
+  /* text-align: left; */
   padding-bottom: 10px;
 }
 
@@ -96,18 +96,37 @@
 }
 
 .tab {
-  font-weight: normal;
+  font-weight: 600; /* semibold */
   cursor: pointer;
-  padding: 6px 10px;
+  padding: 6px 0;
   border-bottom: 2px solid transparent;
   transition: font-weight 0.2s, border-bottom 0.2s;
+  user-select: none;
 }
 
 .tab.active {
-  font-weight: bold;
+  font-weight: 700; /* bold */
   border-bottom: 2px solid #000;
 }
 
+.filter-button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #000;
+  padding: 6px 10px;
+  user-select: none;
+  font-family: inherit;
+}
+
+.filter-button:hover {
+  text-decoration: underline;
+}
 
 .proyecto-card {
   border: 1px solid #ddd;

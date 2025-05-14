@@ -14,7 +14,7 @@
   
   .content-container {
     max-width: 1100px;
-    padding-left: 0px;  /* Espacio visual desde el borde */
+    padding-left: 50px;  /* Espacio visual desde el borde */
     padding-right: 0px;
     margin-left: 0;      /* No centrado */
   }
