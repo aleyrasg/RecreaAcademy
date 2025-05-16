@@ -1,8 +1,8 @@
-import React from 'react';
 import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
 import './Home.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -62,14 +62,12 @@ const Home = () => {
   return (
     <LayoutSubmenu>
       <div className="inicio-container">
-        <video
-          className="video-inicio"
-          src={`${import.meta.env.BASE_URL}src/assets/video-intro.mp4`}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <ArcoRecrea isOnClickDisabled displayHalf>
+          <div className="texto-centro-arco">
+            <h1>Recrea <span>Academy</span></h1>
+            <div class='anio-container'><p className="anio">2025</p></div>
+          </div>
+        </ArcoRecrea>
 
         <div className="inicio-content">
           <img src={`${import.meta.env.BASE_URL}src/assets/portada-docentes.jpg`} alt="Docentes" className="portada-img" />
