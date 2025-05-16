@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout/Layout";
 import "./RutasFormativas.css";
-import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea'; s
+import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea';
 import Card from '@mui/material/Card';
 
 function RutasFormativas() {
