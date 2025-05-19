@@ -9,50 +9,50 @@ import 'swiper/css/pagination';
 
 const testimonios = [
   {
-    usuario: 'Usuario',
+    usuario: 'María López',
     texto: 'Una plataforma innovadora que impulsa el trabajo colaborativo y el liderazgo educativo.',
     estrellas: 5,
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Carlos Méndez',
     texto: 'Recrea Academy me conectó como un espacio donde puedo compartir y aprender con colegas.',
     estrellas: 4,
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Ana Gómez',
     texto: 'Me encantó el diseño y organización de los módulos. ¡Muy útil para fortalecer mi práctica!',
     estrellas: 5,
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Luis Fernández',
     texto: 'Gracias a Recrea ahora tengo acceso a recursos actualizados y confiables.'
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Sofía Ramírez',
     texto: 'Las recomendaciones que ofrece la plataforma han mejorado mi planeación diaria.'
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Jorge Martínez',
     texto: 'Siento que pertenezco a una comunidad real de aprendizaje entre docentes.'
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Elena Torres',
     texto: 'La sección de innovaciones me inspira a probar nuevas metodologías cada semana.'
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Miguel Sánchez',
     texto: 'Gracias a esta plataforma, he podido compartir recursos útiles con colegas.'
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Laura Castillo',
     texto: 'Una excelente herramienta para el desarrollo profesional docente.'
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Diego Herrera',
     texto: 'La navegación es sencilla y las actividades están muy bien estructuradas.'
   },
   {
-    usuario: 'Usuario',
+    usuario: 'Valeria Cruz',
     texto: 'Recrea Academy me ha motivado a innovar en mis clases con nuevas metodologías.'
   }
 ];
@@ -86,7 +86,7 @@ const Home = () => {
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={'auto'}
+            slidesPerView={3}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
