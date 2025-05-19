@@ -31,23 +31,25 @@ const router = createBrowserRouter(
     { path: '/innovaciones', element: <Innovaciones /> },
     { path: '/colaboraciones', element: <Colaboraciones /> },
     { path: '/eventos', element: <Eventos /> },
+    {path : '/mi-portafolio', element: <MiPortafolio />},
+    {path : '/ranking', element: <Ranking />},
 
-    {
-      path: '/mi-portafolio',
-      element: (
-        <PrivateRoute>
-          <MiPortafolio />
-        </PrivateRoute>
-      ),
-    },
-    {
-      path: '/ranking',
-      element: (
-        <PrivateRoute>
-          <Ranking />
-        </PrivateRoute>
-      ),
-    },
+    // {
+    //   path: '/mi-portafolio',
+    //   element: (
+    //     <PrivateRoute>
+    //       <MiPortafolio />
+    //     </PrivateRoute>
+    //   ),
+    // },
+    // {
+    //   path: '/ranking',
+    //   element: (
+    //     <PrivateRoute>
+    //       <Ranking />
+    //     </PrivateRoute>
+    //   ),
+    // },
 
     { path: '*', element: <NotFound /> },
   ],
