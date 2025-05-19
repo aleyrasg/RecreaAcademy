@@ -12,6 +12,7 @@
   padding: 0; /* Elimina cualquier padding lateral */
   margin: 0;  /* Elimina cualquier margen predeterminado */
   box-sizing: border-box;
+  padding-top: 0px !important;
 }
 
 .content-container {

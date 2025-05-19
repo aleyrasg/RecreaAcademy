@@ -1,15 +1,14 @@
-import React from 'react';
-import Layout from '../../components/Layout/Layout';
 import "./MiPortafolio.css";
 import { Box, Typography, Button, Grid, Paper } from '@mui/material';
 import { CalendarToday, EmojiEvents, Groups, Star, Person } from '@mui/icons-material';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
 
 function MiPortafolio() {
   return (
-    <Layout>
+    <LayoutSubmenu>
       <Box sx={{ padding: 4 }}>
         <div className="mi-portafolio-header">
         <h1>Mi portafolio</h1>
@@ -115,7 +114,7 @@ function MiPortafolio() {
           ))}
         </Grid>
       </Box>
-    </Layout>
+    </LayoutSubmenu>
   );
 }
 

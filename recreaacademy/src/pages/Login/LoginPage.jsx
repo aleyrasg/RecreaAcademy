@@ -1,14 +1,11 @@
-// src/pages/Login/LoginPage.jsx
-import Login from '../../components/Login';
-import SignUp from '../../components/SignUp';
+import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import Login from '../../components/Login/Index';
 
 export default function LoginPage() {
   return (
-    <div>
-      <h2>Inicia sesión o regístrate</h2>
+    <LayoutSubmenu>
+      <h1>Iniciar sesión</h1>
       <Login />
-      <hr />
-      <SignUp />
-    </div>
+    </LayoutSubmenu>
   );
 }

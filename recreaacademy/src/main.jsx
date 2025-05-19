@@ -18,6 +18,7 @@ import MiPortafolio from './pages/Portafolio/MiPortafolio';
 import Ranking from './pages/Ranking/Ranking';
 import NotFound from './pages/NotFound';
 import LoginPage from './pages/Login/LoginPage';
+import Logout from './pages/Logout';
 
 import PrivateRoute from './components/PrivateRoute';
 
@@ -26,30 +27,31 @@ const router = createBrowserRouter(
     { path: '/', element: <Home /> },
     { path: '/home', element: <Home /> },
     { path: '/login', element: <LoginPage /> },
+    { path: '/logout', element: <Logout /> },
 
     { path: '/rutas-formativas', element: <RutasFormativas /> },
     { path: '/innovaciones', element: <Innovaciones /> },
     { path: '/colaboraciones', element: <Colaboraciones /> },
     { path: '/eventos', element: <Eventos /> },
-    {path : '/mi-portafolio', element: <MiPortafolio />},
-    {path : '/ranking', element: <Ranking />},
+    // {path : '/mi-portafolio', element: <MiPortafolio />},
+    // {path : '/ranking', element: <Ranking />},
 
-    // {
-    //   path: '/mi-portafolio',
-    //   element: (
-    //     <PrivateRoute>
-    //       <MiPortafolio />
-    //     </PrivateRoute>
-    //   ),
-    // },
-    // {
-    //   path: '/ranking',
-    //   element: (
-    //     <PrivateRoute>
-    //       <Ranking />
-    //     </PrivateRoute>
-    //   ),
-    // },
+    {
+      path: '/mi-portafolio',
+      element: (
+        <PrivateRoute>
+          <MiPortafolio />
+        </PrivateRoute>
+      ),
+    },
+    {
+      path: '/ranking',
+      element: (
+        <PrivateRoute>
+          <Ranking />
+        </PrivateRoute>
+      ),
+    },
 
     { path: '*', element: <NotFound /> },
   ],

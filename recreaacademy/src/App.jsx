@@ -32,7 +32,6 @@ function App() {
       ) : (
         <>
           <Login />
-          <SignUp />
         </>
       )}
     </Layout>
