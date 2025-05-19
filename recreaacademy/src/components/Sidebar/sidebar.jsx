@@ -20,7 +20,7 @@ const Sidebar = () => {
         <ul>
           <li>
             <Link to="/" className={isActive("/") ? "active" : ""}>
-              <span class="material-symbols-outlined">home</span>
+              <span className="material-symbols-outlined">home</span>
               <Typography sx={{ m: 2 }}>Inicio</Typography>
             </Link>
           </li>
@@ -29,7 +29,7 @@ const Sidebar = () => {
               to="/rutas-formativas"
               className={isActive("/rutas-formativas") ? "active" : ""}
             >
-              <span class="material-symbols-outlined">route</span>
+              <span className="material-symbols-outlined">route</span>
               <Typography sx={{ m: 2 }}>Rutas Formativas</Typography>
             </Link>
           </li>
