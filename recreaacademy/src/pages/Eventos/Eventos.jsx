@@ -59,12 +59,12 @@ export default function Eventos() {
         >
           {/* IZQUIERDA: Eventos */}
           <Box sx={{ flex: 1, minWidth: "60%" }}>
-            <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold", color: "#FC083B" }}>
+            <h1>
               Próximos eventos
-            </Typography>
-            <Typography variant="h6" sx={{ mb: 2 }}>
+            </h1>
+            <p>
               Eventos Institucionales
-            </Typography>
+            </p>
 
             {eventos.map((e, i) => (
               <Box key={i} sx={{ mb: 2 }}>
@@ -120,9 +120,9 @@ export default function Eventos() {
         </Box>
 
         {/* CONFERENCISTAS */}
-        <Typography variant="h4" sx={{ mt: 2, mb: 2, color: "#FC083B" }}>
+        <h2>
           Conferencistas
-        </Typography>
+        </h2>
 
         <Swiper
           modules={[Autoplay]}

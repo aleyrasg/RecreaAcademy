@@ -91,6 +91,10 @@
 {
   text-align: center;
 }
+.card-content h2
+{
+  text-align: center;
+}
 .flip-card {
   width: 300px;
   height: 200px;

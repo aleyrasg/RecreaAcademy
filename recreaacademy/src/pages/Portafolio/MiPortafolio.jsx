@@ -45,9 +45,9 @@ function MiPortafolio() {
         </Box>
 
         {/* Rutas Formativas */}
-        <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FF004C', mb: 2 }}>
+        <h2>
           Mis Rutas Formativas
-        </Typography>
+        </h2>
 
         <Grid container spacing={2} mb={4}>
           <Grid item xs={6} md={3}>
@@ -81,9 +81,9 @@ function MiPortafolio() {
         </Grid>
 
         {/* Proyectos */}
-        <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#FF004C', mb: 2 }}>
+        <h2>
           Mis Proyectos
-        </Typography>
+        </h2>
 
         <Grid container spacing={2}>
           {[

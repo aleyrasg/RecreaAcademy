@@ -1,17 +1,42 @@
 // import { useState } from 'react'
-import './App.css'
-import React from 'react';
-import Layout from './components/Layout/Layout';
-import 'swiper/css';
-import 'swiper/css/autoplay';
-
+import { useEffect, useState } from 'react'
+import { supabase } from './services/supabaseClient'
+import Layout from './components/Layout/Layout'
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user)
+    })
+
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user || null)
+    })
+
+    return () => listener.subscription.unsubscribe()
+  }, [])
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
+  }
+
   return (
     <Layout>
-      <h1>Bienvenidos a Recrea Academy</h1>
+      {user ? (
+        <div>
+          <p>Bienvenido {user.email}</p>
+          <button onClick={handleLogout}>Cerrar sesión</button>
+        </div>
+      ) : (
+        <>
+          <Login />
+          <SignUp />
+        </>
+      )}
     </Layout>
-  );
+  )
 }
 
-export default App;
+export default App

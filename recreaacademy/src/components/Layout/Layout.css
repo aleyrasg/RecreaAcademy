@@ -23,7 +23,16 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 800;
     color: #FC083B;
-    font-size: 36px;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .main-content h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 550;
+    color: #FC083B;
+    font-size: 22px;
     text-align: left;
     margin-bottom: 10px;
   }
