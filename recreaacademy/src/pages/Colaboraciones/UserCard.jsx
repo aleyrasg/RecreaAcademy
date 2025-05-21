@@ -5,7 +5,7 @@ function UserCard({ color }) {
     <div className="user-card" style={{ backgroundColor: color }}>
       <div className="user-icon">👤</div>
       <div className="user-name">Usuario</div>
-      {/* <button className="follow-btn" style={{ color }}>
+     {/* <button className="follow-btn" style={{ color }}>
         Seguir
       </button> */}
     </div>

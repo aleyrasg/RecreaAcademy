@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
 import './Home.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -58,6 +59,15 @@ const testimonios = [
 ];
 
 const Home = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [nuevoComentario, setNuevoComentario] = useState({ usuario: '', texto: '' });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(nuevoComentario);
+    setShowModal(false);
+    setNuevoComentario({ usuario: '', texto: '' });
+  };
 
   return (
     <LayoutSubmenu>
@@ -115,8 +125,34 @@ const Home = () => {
         </div>
 
         <div className="opinion-btn-container">
-          <button className="btn-opinion">Déjanos tu opinión</button>
+          <button className="btn-opinion" onClick={() => setShowModal(true)}>Déjanos tu opinión</button>
         </div>
+        {showModal && (
+          <div className="modal-overlay">
+            <div className="modal">
+              <h3>Tu Testimonio</h3>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  placeholder="Tu nombre"
+                  value={nuevoComentario.usuario}
+                  onChange={(e) => setNuevoComentario({ ...nuevoComentario, usuario: e.target.value })}
+                  required
+                />
+                <textarea
+                  placeholder="Escribe tu comentario"
+                  value={nuevoComentario.texto}
+                  onChange={(e) => setNuevoComentario({ ...nuevoComentario, texto: e.target.value })}
+                  required
+                />
+                <div className="modal-buttons">
+                  <button type="submit">Enviar</button>
+                  <button type="button" onClick={() => setShowModal(false)}>Cancelar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
     </LayoutSubmenu>
   );
