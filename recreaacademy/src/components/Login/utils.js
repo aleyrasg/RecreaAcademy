@@ -1,7 +1,8 @@
 import supabase  from '../../services/supabaseClient'
 
 export const signOut = async () => {
-    const { error } = await supabase.auth.signOut()
+    const { error } = await supabase.auth.signOut();
+    return error;
 }
 
 export const signIn = async () => {
@@ -13,16 +14,7 @@ export const signIn = async () => {
                 prompt: 'consent',
             },
         },
-    })
-    console.log(data)
-};
+    });
 
-export const getUser = async () => {
-    const response = await supabase.auth.getSession();
-
-    const user = {
-        email: response?.data?.session?.user?.email ?? '',
-        name: response?.data?.session?.user?.user_metadata?.name ?? '',
-    }
-    return user;
+    return {data, error};
 };
