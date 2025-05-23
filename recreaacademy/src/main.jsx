@@ -19,6 +19,9 @@ import Ranking from './pages/Ranking/Ranking';
 import NotFound from './pages/NotFound';
 import LoginPage from './pages/Login/LoginPage';
 import Logout from './pages/Logout';
+import Congreso from './pages/Congreso/Congreso';
+import Foro from './pages/ComunidadRecrea/Foro';
+
 
 import PrivateRoute from './components/PrivateRoute';
 
@@ -33,6 +36,8 @@ const router = createBrowserRouter(
     { path: '/innovaciones', element: <Innovaciones /> },
     { path: '/colaboraciones', element: <Colaboraciones /> },
     { path: '/eventos', element: <Eventos /> },
+    {path : '/congreso', element: <Congreso />},
+    {path : '/foro', element: <Foro />},
     // {path : '/mi-portafolio', element: <MiPortafolio />},
     // {path : '/ranking', element: <Ranking />},
 

@@ -26,6 +26,15 @@ const Sidebar = () => {
           </li>
           <li>
             <Link
+              to="/congreso"
+              className={isActive("/congreso") ? "active" : ""}
+            >
+              <span class="material-symbols-outlined">hub</span>
+              <Typography sx={{ m: 2 }}>Congreso</Typography>
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/rutas-formativas"
               className={isActive("/rutas-formativas") ? "active" : ""}
             >
@@ -67,6 +76,15 @@ const Sidebar = () => {
             >
               <span class="material-symbols-outlined">calendar_month</span>{" "}
               <Typography sx={{ m: 2 }}>Eventos</Typography>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/foro"
+              className={isActive("/comunidad") ? "active" : ""}
+            >
+              <span class="material-symbols-outlined">forum</span>
+              <Typography sx={{ m: 2 }}>Comunidad Recrea</Typography>
             </Link>
           </li>
           <li>
