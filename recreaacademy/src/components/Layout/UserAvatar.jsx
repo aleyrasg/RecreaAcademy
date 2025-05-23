@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import { deepOrange } from '@mui/material/colors';
-import { getUser, signOut } from '../Login/utils';
+import { useGetUser } from '../../hooks/useGetUser';
 
 export default function UserAvatar() {
-    const navigate = useNavigate();
-    const [user, setUser] = useState({ email: '', name: '' });
+    const { user } = useGetUser()
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -18,27 +17,6 @@ export default function UserAvatar() {
     const handleClose = () => {
         setAnchorEl(null);
     };
-
-    const getGoogleUser = async () => {
-        const usr = await getUser();
-        setUser(usr)
-        console.log(usr)
-    }
-
-    const handleProfile = () => {
-        handleClose()
-    };
-    const handleLogout = async () => {
-        handleClose()
-        await signOut();
-        navigate('/')
-
-    };
-
-    useEffect(() => {
-        getGoogleUser()
-    }, []);
-
 
     return (
         <Stack direction="row" spacing={2} justifyContent='end'>

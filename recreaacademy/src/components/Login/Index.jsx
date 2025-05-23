@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signIn, getUser } from './utils';
+import { signIn } from './utils';
+import { useGetUser } from '../../hooks/useGetUser';
 import './login.css'
 
 function Login() {
   const navigate = useNavigate();
+  const { user, isLoading } = useGetUser()
 
   const autoLogin = async () => {
-    const user = await getUser();
-    if (user?.email) {
+    if (!isLoading && user?.email) {
       navigate('/')
     }
   };
