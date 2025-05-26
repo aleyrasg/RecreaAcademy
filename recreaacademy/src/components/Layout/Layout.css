@@ -4,7 +4,6 @@
   text-align: left;
 }
 .main-content {
-    margin-left: 250px; /* Igual al ancho del sidebar */
     padding: 40px 0;    /* Quitamos padding lateral excesivo */
     min-height: 100vh;
     background-color: white;

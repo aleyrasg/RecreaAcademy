@@ -1,18 +1,16 @@
-import UserAvatar from "./UserAvatar";
 import Sidebar from "../Sidebar/sidebar";
-import "./Layout.css";
+import { 
+ Box
+} from '@chakra-ui/react';
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <Box display='flex' flexDirection='row'>
       <Sidebar />
-      <main className="main-content">
-        <UserAvatar /> 
-        <div className="content-container">
-          {children}
-        </div>
-      </main>
-    </>
+      <Box>
+        {children}
+      </Box>
+    </Box>
   );
 };
 

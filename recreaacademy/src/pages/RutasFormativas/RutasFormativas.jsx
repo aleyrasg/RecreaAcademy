@@ -1,8 +1,10 @@
 import Layout from "../../components/Layout/Layout";
 import "./RutasFormativas.css";
 import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea';
-import Card from '@mui/material/Card';
-import Typography from '@mui/material/Typography';
+import { 
+  Card,
+  Text
+} from '@chakra-ui/react';
 
 function RutasFormativas() {
   return (
@@ -15,10 +17,10 @@ function RutasFormativas() {
       <ArcoRecrea>
         <Card className="card" sx={{ maxWidth: 300 }}>
           <div className="card-content">
-            <Typography
+            <Text
               variant="h5" fontWeight="bold" sx={{ color: '#FC083B' }}>
               Rutas Formativas
-            </Typography>
+            </Text>
             <p>¡Conoce cada una de nuestras rutas formativas!</p>
           </div>
         </Card>

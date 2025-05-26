@@ -1,18 +1,14 @@
-import UserAvatar from "./UserAvatar";
 import Sidebar from "../Sidebar/sidebar";
 import "./LayoutSubmenu.css";
 
 const LayoutSubmenu = ({ children }) => {
   return (
-    <>
+    <main className="main-content">
       <Sidebar />
-      <main className="main-content">
-        <UserAvatar /> 
-        <div className="content-container">
-          {children}
-        </div>
-      </main>
-    </>
+      <div className="content-container">
+        {children}
+      </div>
+    </main>
   );
 };
 

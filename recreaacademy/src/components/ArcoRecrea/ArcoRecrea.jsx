@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Card from '@mui/material/Card';
 import '../../pages/RutasFormativas/RutasFormativas.css'
 import './ArcoRecrea.css';
 
@@ -39,12 +38,12 @@ const ArcoRecrea = ({ children, displayHalf = false, isOnClickDisabled = false }
                   {children}
                 </div>
                 <div className="flip-card-back">
-                  <Card className="card" sx={{ maxWidth: 300 }}>
+                  <div className="card" sx={{ maxWidth: 300 }}>
                     <div className="card-content">
                       <h2>{selectedIndex !== null ? iconos[selectedIndex].title : ''}</h2>
                       <p>{selectedIndex !== null ? iconos[selectedIndex].description : ''}</p>
                     </div>
-                  </Card>
+                  </div>
                 </div>
               </div>
             </div>

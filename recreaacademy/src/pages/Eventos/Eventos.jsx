@@ -1,5 +1,5 @@
 import React from "react";
-import LayoutSubmenu from "../../components/Layout/LayoutSubmenu";
+import Layout from "../../components/Layout/Layout";
 import { Box, Typography, Card, CardContent, CardMedia } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
@@ -48,7 +48,7 @@ const conferencistas = [
 
 export default function Eventos() {
   return (
-    <LayoutSubmenu>
+    <Layout>
       <Box className="eventos-container" sx={{ px: 4, pt: 4, pb: 2, width: "100%" }}>
         <Box
           sx={{
@@ -187,6 +187,6 @@ export default function Eventos() {
           )
           .join("\n")}
       `}</style>
-    </LayoutSubmenu>
+    </Layout>
   );
 }

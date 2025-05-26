@@ -6,7 +6,7 @@ import UserCarousel from "./UserCarousel";
 import SearchAndAdd from "./SearchAndAdd";
 import ProjectsTabs from "./ProjectsTabs";
 import ProjectCard from "./ProjectCard";
-import NewProjectDialog from "./NewProjectDialog";
+//import NewProjectDialog from "./NewProjectDialog";
 
 const initialProjects = [
   {
@@ -64,18 +64,22 @@ function Colaboraciones() {
       />
 
       <div className="proyectos-section">
+        {
+        /*
         <ProjectsTabs
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
           filter={filter}
           setFilter={setFilter}
         />
+        */}
 
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
 
+{/*
       <NewProjectDialog
         open={openDialog}
         onClose={() => setOpenDialog(false)}
@@ -83,6 +87,8 @@ function Colaboraciones() {
         setNewProject={setNewProject}
         onCreate={handleAddProject}
       />
+      */
+}
     </Layout>
   );
 }

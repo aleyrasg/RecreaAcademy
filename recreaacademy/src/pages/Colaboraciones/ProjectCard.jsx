@@ -1,5 +1,7 @@
 import React from "react";
-import { Button } from "@mui/material";
+import {
+  Button,
+} from '@chakra-ui/react';
 
 function ProjectCard({ project }) {
   return (
