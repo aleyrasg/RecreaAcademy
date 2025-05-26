@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import Layout from '../../components/Layout/Layout';
 import './Innovaciones.css';
 
 function Innovaciones() {
@@ -59,7 +59,7 @@ function Innovaciones() {
   };
 
   return (
-    <LayoutSubmenu>
+    <Layout>
       <h1 className="titulo">Innovaciones</h1>
       <div className="innovaciones-container">
         <p className="descripcion">
@@ -147,7 +147,7 @@ function Innovaciones() {
           </p>
         </div>
       </div>
-    </LayoutSubmenu>
+    </Layout>
   );
 }
 

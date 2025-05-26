@@ -4,11 +4,11 @@ import { CalendarToday, EmojiEvents, Groups, Star, Person } from '@mui/icons-mat
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import Layout from '../../components/Layout/Layout';
 
 function MiPortafolio() {
   return (
-    <LayoutSubmenu>
+    <Layout>
       <Box sx={{ padding: 4 }}>
         <div className="mi-portafolio-header">
         <h1>Mi portafolio</h1>
@@ -114,7 +114,7 @@ function MiPortafolio() {
           ))}
         </Grid>
       </Box>
-    </LayoutSubmenu>
+    </Layout>
   );
 }
 

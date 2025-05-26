@@ -1,47 +1,65 @@
-import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import {
-  Avatar,
-  Menu,
-  Button,
-  MenuList,
-  MenuItem,
-  IconButton,
-} from "@mui/material";
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Stack from '@mui/material/Stack';
+import { deepOrange } from '@mui/material/colors';
 import { useGetUser } from '../../hooks/useGetUser';
 
 export default function UserAvatar() {
-  const { user } = useGetUser();
-  const [menuOpen, setMenuOpen] = useState(false);
+    const { user } = useGetUser()
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-  return (
-    <div justify="flex-end" mb={4}>
-      <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)}>
-        <Button
-          as={IconButton}
-          icon={
-            <Avatar name={user?.name || 'Usuario'} size="sm" />
-          }
-          variant="ghost"
-          onClick={() => setMenuOpen(!menuOpen)}
-        />
-        <MenuList>
-          {user?.email ? (
-            <>
-              <MenuItem as={RouterLink} to="/mi-portafolio">
-                {user.email}
-              </MenuItem>
-              <MenuItem as={RouterLink} to="/logout">
-                Logout
-              </MenuItem>
-            </>
-          ) : (
-            <MenuItem as={RouterLink} to="/login">
-              Login
-            </MenuItem>
-          )}
-        </MenuList>
-      </Menu>
-    </div>
-  );
+
+    return (
+        <Stack direction="row" spacing={2} justifyContent='end'>
+            <Avatar
+                sx={{ bgcolor: deepOrange[500] }}
+                alt={user?.name}
+                src="/broken-image.jpg"
+                onClick={handleClick}
+            >
+            </Avatar>
+
+            <Menu
+                id="basic-menu"
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+            >
+
+                {user?.email ?
+                    (<>
+                        <MenuItem>
+                            <Link to="/mi-portafolio">
+                                {user?.email}
+                            </Link>
+                        </MenuItem>
+                        <MenuItem>
+                            <Link to="/logout">
+                                Logout
+                            </Link>
+                        </MenuItem>
+                    </>)
+
+                    :
+                    (<>
+                        <MenuItem>
+                            <Link to="/login">
+                                Login
+                            </Link>
+                        </MenuItem>
+                    </>)
+                }
+            </Menu>
+        </Stack>
+    );
 }
