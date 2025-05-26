@@ -15,7 +15,7 @@ import {
   HStack,
   Button,
 } from '@chakra-ui/react';
-import { SearchIcon } from '@chakra-ui/icons';
+import { FiSearch } from 'react-icons/fi';
 import Layout from '../../components/Layout/Layout';
 
 function Congreso() {
@@ -50,31 +50,31 @@ function Congreso() {
         <InputGroup mb={8} maxW="300px">
           <Input placeholder="Buscar" />
           <InputRightElement>
-            <SearchIcon color="gray.500" />
+            <Icon as={FiSearch} color="gray.500" />
           </InputRightElement>
         </InputGroup>
 
         <Flex direction={{ base: 'column', md: 'row' }} gap={8}>
           {/* Videos y tarjetas */}
-          <Box flex="2">
+          <Box flex="2" p={6} rounded="lg" boxShadow="lg">
             <Stack spacing={6}>
-              <Box bg="gray.50" p={4} borderRadius="md" boxShadow="sm">
+              <Box bg="gray.50" p={6} rounded="lg" boxShadow="md">
                 <Text fontWeight="bold" color="red.500">Edición 2022</Text>
                 <Image
-                  src="https://via.placeholder.com/300x150?text=Video+Ponente"
+                  src="https://source.unsplash.com/featured/300x150?education"
                   alt="Edición 2022"
-                  borderRadius="md"
+                  rounded="md"
                   my={2}
                 />
                 <Text fontWeight="semibold">Edición 2022 - IA en el Aula</Text>
               </Box>
 
-              <Box bg="gray.100" p={4} borderRadius="md">
+              <Box bg="gray.100" p={6} rounded="lg" boxShadow="md">
                 <Text fontWeight="semibold">Edición 2023</Text>
                 <Image
-                  src="https://via.placeholder.com/300x150?text=Edicion+2023"
+                  src="https://source.unsplash.com/featured/300x150?education"
                   alt="Edición 2023"
-                  borderRadius="md"
+                  rounded="md"
                   mt={2}
                 />
               </Box>
@@ -82,19 +82,19 @@ function Congreso() {
           </Box>
 
           {/* Ponente destacado */}
-          <Box flex="1" bg="gray.100" p={6} borderRadius="md" boxShadow="md">
+          <Box flex="1" bg="gray.100" p={6} rounded="lg" boxShadow="lg">
             <Heading as="h3" size="md" mb={4}>Ponente destacado</Heading>
             <Image
-              src="https://via.placeholder.com/150x150?text=Ponente"
+              src="https://source.unsplash.com/featured/150x150?woman,education"
               alt="Bárbara Gómez"
-              borderRadius="full"
+              rounded="full"
               mb={4}
             />
             <Text fontWeight="bold">Bárbara Gómez</Text>
             <Text fontSize="sm" mb={4}>
               “La tecnología debe servir como un puente hacia una educación más inclusiva.”
             </Text>
-            <Button colorScheme="red" size="sm">Ver su charla</Button>
+            <Button colorScheme="red" size="sm" rounded="full">Ver su charla</Button>
           </Box>
         </Flex>
       </Box>
