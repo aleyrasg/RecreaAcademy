@@ -80,7 +80,7 @@ const Sidebar = () => {
           </li>
           <li>
             <Link
-              to="/foro"
+              to="/comunidad"
               className={isActive("/comunidad") ? "active" : ""}
             >
               <span class="material-symbols-outlined">forum</span>
