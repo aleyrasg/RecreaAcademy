@@ -4,8 +4,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
-
 // 🔍 Verificación del archivo .env
 console.log('🔍 VITE_SUPABASE_URL:', import.meta.env.VITE_SUPABASE_URL);
 console.log('🔍 VITE_SUPABASE_ANON_KEY:', import.meta.env.VITE_SUPABASE_ANON_KEY ? '[DETECTADA]' : '❌ NO DETECTADA');
@@ -68,8 +66,6 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ChakraProvider>
       <RouterProvider router={router} />
-    </ChakraProvider>
   </React.StrictMode>
 );

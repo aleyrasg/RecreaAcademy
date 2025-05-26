@@ -2,14 +2,12 @@ import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Avatar,
-  Box,
   Menu,
-  MenuButton,
+  Button,
   MenuList,
   MenuItem,
-  Flex,
   IconButton,
-} from '@chakra-ui/react';
+} from "@mui/material";
 import { useGetUser } from '../../hooks/useGetUser';
 
 export default function UserAvatar() {
@@ -17,9 +15,9 @@ export default function UserAvatar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <Flex justify="flex-end" mb={4}>
+    <div justify="flex-end" mb={4}>
       <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)}>
-        <MenuButton
+        <Button
           as={IconButton}
           icon={
             <Avatar name={user?.name || 'Usuario'} size="sm" />
@@ -44,6 +42,6 @@ export default function UserAvatar() {
           )}
         </MenuList>
       </Menu>
-    </Flex>
+    </div>
   );
 }
