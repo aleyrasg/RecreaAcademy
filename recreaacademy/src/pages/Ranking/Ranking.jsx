@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Ranking.css';
-import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import Layout from '../../components/Layout/Layout';
 import medalla from '../../assets/medalla.png';
 
 const miembros = [
@@ -20,7 +20,7 @@ const miembros = [
 
 const Ranking = () => {
   return (
-    <LayoutSubmenu>
+    <Layout>
       <Box sx={{ px: 4, py: 3, position: 'relative' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
           <Typography variant="h5" fontWeight="bold">Brújula Creativa</Typography>
@@ -101,7 +101,7 @@ const Ranking = () => {
           </Card>
         ))}
       </Box>
-    </LayoutSubmenu>
+    </Layout>
   );
 };
 

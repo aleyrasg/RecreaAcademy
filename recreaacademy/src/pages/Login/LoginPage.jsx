@@ -1,11 +1,11 @@
-import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import Layout from '../../components/Layout/Layout';
 import Login from '../../components/Login/Index';
 
 export default function LoginPage() {
   return (
-    <LayoutSubmenu>
+    <Layout>
       <h1>Iniciar sesión</h1>
       <Login />
-    </LayoutSubmenu>
+    </Layout>
   );
 }

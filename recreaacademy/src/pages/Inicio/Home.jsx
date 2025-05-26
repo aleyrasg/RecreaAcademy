@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import LayoutSubmenu from '../../components/Layout/LayoutSubmenu';
+import Layout from '../../components/Layout/Layout';
 import './Home.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
@@ -70,7 +70,7 @@ const Home = () => {
   };
 
   return (
-    <LayoutSubmenu>
+    <Layout>
       <div className="inicio-container">
         <ArcoRecrea isOnClickDisabled displayHalf>
           <div className="texto-centro-arco">
@@ -154,7 +154,7 @@ const Home = () => {
           </div>
         )}
       </div>
-    </LayoutSubmenu>
+    </Layout>
   );
 };
 
