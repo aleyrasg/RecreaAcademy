@@ -1,22 +1,19 @@
 import React from 'react';
 import {
   Box,
-  Typography,
   Button,
-  TextField,
+  Divider,
+  Flex,
+  Heading,
+  Icon,
+  Input,
   List,
   ListItem,
-  ListItemText,
-  Divider,
-  Drawer,
-  ListItemIcon,
-} from '@mui/material';
-import ForumIcon from '@mui/icons-material/Forum';
-import CampaignIcon from '@mui/icons-material/Campaign';
-import ChatIcon from '@mui/icons-material/Chat';
-import HowToVoteIcon from '@mui/icons-material/HowToVote';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import Layout from '../../components/Layout/Layout'
+  Stack,
+  Text,
+} from '@chakra-ui/react';
+import { FiVolume2, FiSpeaker, FiMessageCircle, FiClipboard } from 'react-icons/fi';
+import Layout from '../../components/Layout/Layout';
 
 const conversaciones = [
   {
@@ -45,83 +42,57 @@ const conversaciones = [
 export default function ComunidadRecrea() {
   return (
     <Layout>
-        <h1>Comunidad Recrea</h1>
-    <Box sx={{ display: 'flex', height: '100vh' }}>
-      {/* Main Content */}
-      <Box sx={{ flexGrow: 1, p: 3, bgcolor: '#fdfdfd' }}>
+      <Flex height="100vh">
+        {/* Contenido principal */}
+        <Box flex="1" p="6" bg="gray.50" overflowY="auto">
+          <Heading as="h1" size="lg" color="pink.500" mb="4">
+            Comunidad Recrea
+          </Heading>
 
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="h6">General</Typography>
-          <TextField variant="outlined" placeholder="Buscar" size="small" />
+          <Flex justify="space-between" align="center" mb="4">
+            <Text fontSize="xl" fontWeight="semibold">
+              General
+            </Text>
+            <Input placeholder="Buscar" width="200px" size="sm" />
+          </Flex>
+
+          <Button colorScheme="pink" mb="6">
+            + Nueva Conversación
+          </Button>
+
+          <Stack spacing={4}>
+            {conversaciones.map((conv, index) => (
+              <Box key={index} bg="white" p="4" borderRadius="md" boxShadow="sm">
+                <Text fontWeight="bold" fontSize="md">
+                  {conv.icon} {conv.titulo}
+                </Text>
+                <Text fontSize="sm" color="gray.600" mt="1">
+                  {conv.autor} — {conv.hace} — {conv.respuestas} Respuestas
+                </Text>
+              </Box>
+            ))}
+          </Stack>
         </Box>
 
-        <Button
-          variant="contained"
-          sx={{ bgcolor: '#f50057', color: '#fff', mt: 2, mb: 2 }}
-        >
-          + Nueva Conversación
-        </Button>
-
-        {/* Lista de conversaciones */}
-        <List>
-          {conversaciones.map((conv, index) => (
-            <React.Fragment key={index}>
-              <ListItem alignItems="flex-start" sx={{ bgcolor: '#fff', mb: 1, borderRadius: 2 }}>
-                <ListItemText
-                  primary={`${conv.icon} ${conv.titulo}`}
-                  secondary={
-                    <>
-                      <Typography
-                        sx={{ display: 'inline' }}
-                        component="span"
-                        variant="body2"
-                        color="text.primary"
-                      >
-                        {conv.autor}
-                      </Typography>
-                      {` — ${conv.hace} — ${conv.respuestas} Respuestas`}
-                    </>
-                  }
-                />
-              </ListItem>
-              <Divider />
-            </React.Fragment>
-          ))}
-        </List>
-      </Box>
-
-      {/* Sidebar derecho */}
-      <Drawer
-        variant="permanent"
-        anchor="right"
-        sx={{
-          width: 240,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: 240, boxSizing: 'border-box' },
-        }}
-      >
-        <Box sx={{ mt: 8 }}>
-          <List>
-            <ListItem button>
-              <ListItemIcon><VolumeUpIcon /></ListItemIcon>
-              <ListItemText primary="General" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon><CampaignIcon /></ListItemIcon>
-              <ListItemText primary="Anuncios Oficiales" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon><ChatIcon /></ListItemIcon>
-              <ListItemText primary="Charla Docente" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon><HowToVoteIcon /></ListItemIcon>
-              <ListItemText primary="Convocatorias" />
-            </ListItem>
-          </List>
+        {/* Sidebar derecho */}
+        <Box w="240px" bg="white" borderLeft="1px solid" borderColor="gray.200" pt="20" px="4">
+          <Stack spacing={4}>
+            <SidebarItem icon={FiVolume2} label="General" />
+            <SidebarItem icon={FiSpeaker} label="Anuncios Oficiales" />
+            <SidebarItem icon={FiMessageCircle} label="Charla Docente" />
+            <SidebarItem icon={FiClipboard} label="Convocatorias" />
+          </Stack>
         </Box>
-      </Drawer>
-    </Box>
+      </Flex>
     </Layout>
+  );
+}
+
+function SidebarItem({ icon, label }) {
+  return (
+    <Flex align="center" p="2" borderRadius="md" _hover={{ bg: 'gray.100', cursor: 'pointer' }}>
+      <Icon as={icon} mr="3" />
+      <Text fontWeight="medium">{label}</Text>
+    </Flex>
   );
 }
