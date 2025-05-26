@@ -1,18 +1,18 @@
-import { Box, Flex } from '@chakra-ui/react';
 import UserAvatar from "./UserAvatar";
 import Sidebar from "../Sidebar/sidebar";
+import "./LayoutSubmenu.css";
 
 const LayoutSubmenu = ({ children }) => {
   return (
-    <Flex minH="100vh" bg="gray.50">
+    <>
       <Sidebar />
-      <Box as="main" flex="1" p={6}>
-        <UserAvatar />
-        <Box mt={6}>
+      <main className="main-content">
+        <UserAvatar /> 
+        <div className="content-container">
           {children}
-        </Box>
-      </Box>
-    </Flex>
+        </div>
+      </main>
+    </>
   );
 };
 
