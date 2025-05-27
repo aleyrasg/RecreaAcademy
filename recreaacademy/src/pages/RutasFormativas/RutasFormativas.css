@@ -13,16 +13,15 @@
   position: relative;
   animation: rotate 20s linear infinite;
   background: conic-gradient(
-    
-    #ff7e4f,
-    #bbc810,
-    #fa68c1,
-    #b785c2,
-    #3ab0e3,
-    #05bac4,
-    #FEA904,
-    #ffb127,
-    #FE8520  
+    #1F9CD0,
+    #02B6BD,
+    #A3A804,
+    #FEB101,
+    #FE8A12,
+    #FE6F60,
+    #E54EB5,
+    #8F70c1,
+    #1F9CD0
   );
 }
 
