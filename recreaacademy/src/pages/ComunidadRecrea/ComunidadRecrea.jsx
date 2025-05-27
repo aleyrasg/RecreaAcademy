@@ -81,14 +81,13 @@ export default function ComunidadRecrea() {
 
   return (
     <Layout>
+      <h1>Comunidad</h1>
+      <p>El espacio para compartir nuestras ideas</p>
       <GlobalStyles styles={`@keyframes fadeSlide { from {opacity: 0; transform: translateX(-8px);} to {opacity: 1; transform: translateX(0);} }`} />
       <Box sx={{ display: 'flex', height: '100vh' }}>
         <Box sx={{ flexGrow: 1, p: 4, bgcolor: '#fdfdfd' }}>
           {!conversacionSeleccionada ? (
             <>
-              <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 3 }}>
-                Comunidad Recrea
-              </Typography>
               <Box
                 key={selectedCategory}
                 sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', animation: 'fadeSlide 0.4s ease', color: categoryColor }}
