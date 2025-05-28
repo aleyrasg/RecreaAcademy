@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
+import MotionReveal from "../../components/animations/MotionReveal";
 import { Box, Typography, Card, CardContent, CardMedia } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
@@ -9,7 +10,7 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import dayjs from "dayjs";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules"; // ✅ aquí sí está Autoplay
+import { Autoplay } from "swiper/modules"; 
 import "swiper/css";
 import "swiper/css/autoplay";
 
@@ -59,117 +60,127 @@ export default function Eventos() {
         >
           {/* IZQUIERDA: Eventos */}
           <Box sx={{ flex: 1, minWidth: "60%" }}>
-            <h1>
-              Próximos eventos
-            </h1>
-            <p>
-              Eventos Institucionales
-            </p>
-
-            {eventos.map((e, i) => (
-              <Box key={i} sx={{ mb: 2 }}>
-                <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
-                  <CalendarMonthIcon sx={{ color: "#FC083B", mr: 1 }} />
-                  <Typography variant="body1">
-                    <b>{e.fecha}</b> — {e.titulo}
-                  </Typography>
+            <MotionReveal index={1}>
+              <h1>
+                Próximos eventos
+              </h1>
+            </MotionReveal>
+            <MotionReveal index={2}>
+              <p>
+                Eventos Institucionales
+              </p>
+            </MotionReveal>
+            <MotionReveal index={3}>
+              {eventos.map((e, i) => (
+                <Box key={i} sx={{ mb: 2 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
+                    <CalendarMonthIcon sx={{ color: "#FC083B", mr: 1 }} />
+                    <Typography variant="body1">
+                      <b>{e.fecha}</b> — {e.titulo}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ borderBottom: "1px solid #ccc", ml: 4 }} />
                 </Box>
-                <Box sx={{ borderBottom: "1px solid #ccc", ml: 4 }} />
-              </Box>
-            ))}
+              ))}
+            </MotionReveal>
           </Box>
 
           {/* DERECHA: Calendario */}
-          <Box sx={{ flex: 1, minWidth: "300px", padding: 2 }}>
-            <Typography
-              variant="h6"
-              color="orange"
-              textAlign="center"
-              sx={{ fontWeight: "bold", mb: 1 }}
-            >
-              Abril 2024
-            </Typography>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateCalendar
-                defaultValue={dayjs("2024-04-15")}
-                disableFuture
-                views={["day"]}
-                sx={{
-                  "& .MuiPickersArrowSwitcher-root": {
-                    display: "none",
-                  },
-                  "& .MuiPickersDay-root.Mui-selected": {
-                    backgroundColor: "#FB8C00",
-                  },
-                  "& .MuiPickersDay-root:not(.Mui-selected)": {
-                    color: "#000",
-                  },
-                  "& .MuiPickersDay-today": {
-                    border: "1px solid #FB8C00",
-                  },
-                  "& .MuiTypography-root": {
-                    fontFamily: "inherit",
-                  },
-                  "& .MuiPickersCalendarHeader-label": {
-                    display: "none",
-                  },
-                }}
-              />
-            </LocalizationProvider>
-          </Box>
+          <MotionReveal index={4}>
+            <Box sx={{ flex: 1, minWidth: "300px", padding: 2 }}>
+              <Typography
+                variant="h6"
+                color="orange"
+                textAlign="center"
+                sx={{ fontWeight: "bold", mb: 1 }}
+              >
+                Abril 2024
+              </Typography>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateCalendar
+                  defaultValue={dayjs("2024-04-15")}
+                  disableFuture
+                  views={["day"]}
+                  sx={{
+                    "& .MuiPickersArrowSwitcher-root": {
+                      display: "none",
+                    },
+                    "& .MuiPickersDay-root.Mui-selected": {
+                      backgroundColor: "#FB8C00",
+                    },
+                    "& .MuiPickersDay-root:not(.Mui-selected)": {
+                      color: "#000",
+                    },
+                    "& .MuiPickersDay-today": {
+                      border: "1px solid #FB8C00",
+                    },
+                    "& .MuiTypography-root": {
+                      fontFamily: "inherit",
+                    },
+                    "& .MuiPickersCalendarHeader-label": {
+                      display: "none",
+                    },
+                  }}
+                />
+              </LocalizationProvider>
+            </Box>
+          </MotionReveal>
         </Box>
 
         {/* CONFERENCISTAS */}
-        <h2>
-          Conferencistas
-        </h2>
-
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={1}
-          slidesPerView={3}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          loop={true}
-          style={{ paddingBottom: 40 }}
-        >
-          {conferencistas.map((c, i) => (
-            <SwiperSlide key={i}>
-              <Card
-                sx={{
-                  backgroundColor: c.color,
-                  color: "white",
-                  borderRadius: 3,
-                  width: 250,
-                  height: 420,
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                  boxShadow: 3,
-                  animation: `bounce-${i} 1.9s ease infinite`,
-                  animationDelay: `${i * 0.4}s`,
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  height="240"
-                  image={c.imagen}
-                  alt={c.nombre}
+        <MotionReveal index={5}>
+          <h2>
+            Conferencistas
+          </h2>
+        </MotionReveal>
+        <MotionReveal index={6}>
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={1}
+            slidesPerView={3}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            loop={true}
+            style={{ paddingBottom: 40 }}
+          >
+            {conferencistas.map((c, i) => (
+              <SwiperSlide key={i}>
+                <Card
                   sx={{
-                    objectFit: "cover",
-                    borderTopLeftRadius: "12px",
-                    borderTopRightRadius: "12px",
+                    backgroundColor: c.color,
+                    color: "white",
+                    borderRadius: 3,
+                    width: 250,
+                    height: 420,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
+                    boxShadow: 3,
+                    animation: `bounce-${i} 1.9s ease infinite`,
+                    animationDelay: `${i * 0.4}s`,
                   }}
-                />
-                <CardContent>
-                  <Typography variant="h6" fontWeight="bold">
-                    {c.nombre}
-                  </Typography>
-                  <Typography variant="body2">{c.descripcion}</Typography>
-                </CardContent>
-              </Card>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                >
+                  <CardMedia
+                    component="img"
+                    height="240"
+                    image={c.imagen}
+                    alt={c.nombre}
+                    sx={{
+                      objectFit: "cover",
+                      borderTopLeftRadius: "12px",
+                      borderTopRightRadius: "12px",
+                    }}
+                  />
+                  <CardContent>
+                    <Typography variant="h6" fontWeight="bold">
+                      {c.nombre}
+                    </Typography>
+                    <Typography variant="body2">{c.descripcion}</Typography>
+                  </CardContent>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </MotionReveal>
       </Box>
       <style>{`
         ${conferencistas
