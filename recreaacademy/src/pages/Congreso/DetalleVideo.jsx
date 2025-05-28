@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, Avatar, Button, TextField } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 
@@ -11,7 +11,7 @@ const DetalleVideo = () => {
       <Box sx={{ display: "flex", p: 4 }}>
         {/* Contenido principal a la izquierda */}
         <Box sx={{ flex: 1, pr: 2 }}>
-          <Typography variant="h4" fontWeight="bold" mb={3}>
+          <Typography variant="h1" fontWeight="bold" mb={3}>
             Congreso
           </Typography>
           <Box
@@ -24,6 +24,52 @@ const DetalleVideo = () => {
               mb: 2,
             }}
           />
+          <Typography variant="h5" fontWeight="bold" mb={1}>
+            Educación Aumentada: Inteligencia Artificial para Transformar el Aula
+          </Typography>
+          <Box display="flex" alignItems="center" mb={2}>
+            <Avatar sx={{ width: 32, height: 32, mr: 1 }}>E</Avatar>
+            <Typography variant="body2" fontWeight="bold" mr={1}>
+              Emmanuel Elizondo
+            </Typography>
+            <Button variant="contained" size="small" color="error" sx={{ borderRadius: 5, textTransform: 'none' }}>
+              Seguir
+            </Button>
+          </Box>
+          <Typography variant="caption" display="block" color="text.secondary" mb={2}>
+            126k visualizaciones hace 2 meses
+          </Typography>
+          <Typography variant="body2" color="text.secondary" mb={3}>
+            En esta ponencia del Congreso Recrea Academy 2025, el especialista Emmanuel Elizondo aborda cómo la inteligencia artificial está revolucionando los modelos educativos tradicionales. A través de ejemplos prácticos...
+          </Typography>
+          <Box display="flex" alignItems="center" mb={2}>
+            <Typography variant="body2" fontWeight="bold" sx={{ mr: 1 }}>
+              161 comentarios
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary', cursor: 'pointer' }}>
+              Ordenar por
+            </Typography>
+          </Box>
+          <TextField
+            fullWidth
+            placeholder="Añade un comentario …"
+            variant="standard"
+            sx={{ mb: 3 }}
+          />
+          <Box display="flex" alignItems="flex-start">
+            <Avatar sx={{ width: 32, height: 32, mr: 2 }}>LC</Avatar>
+            <Box>
+              <Typography variant="body2" fontWeight="bold">Luis Castañeda</Typography>
+              <Typography variant="body2" color="text.secondary" mb={1}>
+                Esta charla fue verdaderamente inspiradora. Me fascinó cómo se enlaza con el enfoque de Gemini para la generación de imágenes educativas. Sin duda, aplicaré varias de las estrategias mencionadas con mis estudiantes. ¡Gracias por compartir conocimiento tan valioso!
+              </Typography>
+              <Box display="flex" alignItems="center">
+                <Button size="small" sx={{ textTransform: 'none', fontSize: 12, mr: 1 }}>👍 138</Button>
+                <Button size="small" sx={{ textTransform: 'none', fontSize: 12, mr: 1 }}>Responder</Button>
+                <Button size="small" sx={{ textTransform: 'none', fontSize: 12, color: 'error.main' }}>4 respuestas</Button>
+              </Box>
+            </Box>
+          </Box>
           <Typography variant="subtitle1" fontWeight="bold" mb={1}>
             Este es un ejemplo de visualización con el color seleccionado
           </Typography>
