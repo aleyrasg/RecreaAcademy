@@ -17,13 +17,42 @@ const DetalleVideo = () => {
           <Box
             sx={{
               width: "100%",
-              height: "300px",
+              height: "450px",
               backgroundColor: `#${color}`,
               borderRadius: 2,
               boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
               mb: 2,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
             }}
-          />
+          >
+            <Box
+              component="span"
+              sx={{
+                width: 64,
+                height: 64,
+                backgroundColor: "rgba(0,0,0,0.5)",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                component="span"
+                sx={{
+                  width: 0,
+                  height: 0,
+                  borderTop: "10px solid transparent",
+                  borderBottom: "10px solid transparent",
+                  borderLeft: "20px solid white",
+                  marginLeft: "4px",
+                }}
+              />
+            </Box>
+          </Box>
           <Typography variant="h5" fontWeight="bold" mb={1}>
             Educación Aumentada: Inteligencia Artificial para Transformar el Aula
           </Typography>
