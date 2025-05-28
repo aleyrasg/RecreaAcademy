@@ -19,6 +19,7 @@ import NotFound from './pages/NotFound';
 import LoginPage from './pages/Login/LoginPage';
 import Logout from './pages/Logout';
 import Congreso from './pages/Congreso/Congreso';
+import DetalleVideo from './pages/Congreso/DetalleVideo';
 import ComunidadRecrea from './pages/ComunidadRecrea/ComunidadRecrea';
 
 
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
     { path: '/colaboraciones', element: <Colaboraciones /> },
     { path: '/eventos', element: <Eventos /> },
     {path : '/congreso', element: <Congreso />},
+    { path: '/congreso/detalle/:color', element: <DetalleVideo /> },
     {path : '/comunidad', element: <ComunidadRecrea />},
     // {path : '/mi-portafolio', element: <MiPortafolio />},
     // {path : '/ranking', element: <Ranking />},

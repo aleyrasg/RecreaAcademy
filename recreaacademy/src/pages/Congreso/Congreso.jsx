@@ -140,7 +140,7 @@ const Congreso = () => {
         </MotionReveal>
 
         <Box sx={{ mt: 4 }}>
-          <CarruselHorizontal />
+          <CarruselHorizontal onClickVideo={(videoId) => navigate(`/congreso/detalle/${videoId}`)} />
         </Box>
 
        
@@ -199,7 +199,13 @@ const Congreso = () => {
                   <Typography variant="body2" mt={1}>
                     “{ponentes[0].cita}”
                   </Typography>
-                  <Button variant="contained" sx={{ mt: 2, backgroundColor: '#E6007E' }}>Ver su charla</Button>
+                  <Button
+                    variant="contained"
+                    sx={{ mt: 2, backgroundColor: '#E6007E' }}
+                    onClick={() => navigate(`/congreso/detalle/${ponentes[0].nombre.toLowerCase().replace(/\s+/g, '-')}`)}
+                  >
+                    Ver su charla
+                  </Button>
                 </Paper>
               </Grid>
             </Grid>
