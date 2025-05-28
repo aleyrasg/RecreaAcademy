@@ -5,13 +5,16 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import Layout from '../../components/Layout/Layout';
 import MotionReveal from '../../components/animations/MotionReveal';
-import Adriana from '../../assets/AdrianaVillagomez.png';
-import Carmen from '../../assets/CarmenPellicer.png';
-import Jose from '../../assets/JoseMartinez.png';
-import Mariana from '../../assets/MariaTrinidad.png';
-import Simon from '../../assets/SimonDuque.png';
+import Adriana from '../../assets/adriana-villagomez.png';
+import Carmen from '../../assets/carmen-pellicer.png';
+import Jose from '../../assets/jose-martinez.png';
+import Maria from '../../assets/maria-trinidad.png';
+import Simon from '../../assets/simon-duque.png';
+import CarruselHorizontal from '../../components/animations/CarruselHorizontal';
+import { useNavigate } from 'react-router-dom';
 
 const Congreso = () => {
+  const navigate = useNavigate();
   // IDs para el collage de videos
   const allYoutubeLiveIds = [
     '1S-XDcHJPBA', 'Zrcjl_FLn30', '87CMFz-mTC4', 'B6qaG5aEsb8', 'S7TPhQl0rOw',
@@ -38,7 +41,7 @@ const Congreso = () => {
     },
     {
       nombre: "Mariana Trinidad",
-      imagen: Mariana,
+      imagen: Maria,
       cita: "La educación emocional es la base del aprendizaje integral."
     },
     {
@@ -80,7 +83,7 @@ const Congreso = () => {
       {/* Main Content */}
       <Box sx={{ flexGrow: 1, p: 4 }}>
         <MotionReveal index={1}>
-          <Typography variant="h4" sx={{ fontWeight: 'bold', color: 'red' }}>Congreso</Typography>
+          <Typography variant="h1" sx={{ fontWeight: 'bold', color: 'red' }}>Congreso</Typography>
         </MotionReveal>
 
         {/* Timeline */}
@@ -133,135 +136,15 @@ const Congreso = () => {
 
         {/* Multimedia Content */}
         <MotionReveal index={3}>
-          <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'red' }}>Contenido multimedia</Typography>
+          <Typography variant="h2" sx={{ fontWeight: 'bold', color: 'red' }}>Contenido multimedia</Typography>
         </MotionReveal>
 
-        <MotionReveal index={4}>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}>
-            {/* Barras izquierda */}
-            <Box className="video-bar-group">
-              {[...Array(8)].map((_, i) => (
-                <Box key={`left-${i}`} className="video-bar" />
-              ))}
-            </Box>
+        <Box sx={{ mt: 4 }}>
+          <CarruselHorizontal />
+        </Box>
 
-            {/* Video carousel */}
-            <Box sx={{ display: 'flex' }}>
-              {(selectedYear ? videosPorAno[selectedYear] : youtubeIds).map((id, i) => (
-                <Box
-                  key={i}
-                  onClick={() => handleOpen(id)}
-                  className="video-flop-container"
-                  sx={{
-                    width: i === 2 ? 320 : 80,
-                    height: i === 2 ? 180 : 80,
-                    borderRadius: 2,
-                    overflow: 'hidden',
-                    transform: i === 2 ? 'scale(1)' : 'scale(0.9)',
-                    transition: 'transform 0.4s ease, z-index 0.4s ease',
-                    position: 'relative',
-                    zIndex: i === 2 ? 2 : 1,
-                    cursor: 'pointer',
-                    backgroundImage: `url(https://img.youtube.com/vi/${id}/0.jpg)`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    animation: 'fadeIn 0.6s ease',
-                    '&:hover': {
-                      transform: 'scale(1.2)',
-                      zIndex: 3,
-                    },
-                  }}
-                />
-              ))}
-            </Box>
-
-            {/* Barras derecha */}
-            <Box className="video-bar-group">
-              {[...Array(8)].map((_, i) => (
-                <Box key={`right-${i}`} className="video-bar" />
-              ))}
-            </Box>
-          </Box>
-        </MotionReveal>
-
-        <MotionReveal index={4.5}>
-          <Box
-            sx={{
-              width: '100%',
-              maxWidth: '100vw',
-              height: '100vh',
-              display: 'flex',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              position: 'relative',
-              overflow: 'hidden',
-              background: 'radial-gradient(circle at center, rgba(255,255,255,0.92) 60%, transparent 90%)',
-              m: 0,
-              p: 0,
-              pl: 10,
-            }}
-          >
-            {allYoutubeLiveIds.map((id, index) => (
-              <Box
-                key={index}
-                sx={{
-                  width: 280,
-                  height: 158,
-                  backgroundColor: '#000',
-                  borderRadius: 2,
-                  overflow: 'hidden',
-                  boxShadow: '0 0 0 4px white',
-                  cursor: 'pointer',
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transformOrigin: 'center center',
-                  transform: `rotate(${index * (360 / allYoutubeLiveIds.length)}deg) translate(480px) rotate(-${index * (360 / allYoutubeLiveIds.length)}deg)`,
-                  animation: 'fadeInUp 0.6s ease',
-                }}
-              >
-                <iframe
-                  src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${id}`}
-                  allow="autoplay; encrypted-media"
-                  title={`Video ${index}`}
-                  frameBorder="0"
-                  allowFullScreen
-                  style={{ width: '100%', height: '100%' }}
-                />
-              </Box>
-            ))}
-            {allYoutubeLiveIds.slice(0,6).map((id, index) => (
-              <Box
-                key={`inner-${index}`}
-                sx={{
-                  width: 280,
-                  height: 158,
-                  backgroundColor: '#000',
-                  borderRadius: 2,
-                  overflow: 'hidden',
-                  boxShadow: '0 0 0 4px white',
-                  cursor: 'pointer',
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transformOrigin: 'center center',
-                  transform: `rotate(${index * (360 / 6)}deg) translate(240px) rotate(-${index * (360 / 6)}deg)`,
-                  animation: 'fadeInUp 0.6s ease',
-                }}
-              >
-                <iframe
-                  src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${id}`}
-                  allow="autoplay; encrypted-media"
-                  title={`Inner Video ${index}`}
-                  frameBorder="0"
-                  allowFullScreen
-                  style={{ width: '100%', height: '100%' }}
-                />
-              </Box>
-            ))}
-          </Box>
-        </MotionReveal>
-
+       
+            
         {/* Nueva sección: Categorías, Ediciones y Ponente destacado */}
         <MotionReveal index={5}>
           <Box sx={{ mt: 5 }}>
@@ -278,7 +161,7 @@ const Congreso = () => {
               <Grid item xs={12} md={8}>
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={6}>
-                    <Box sx={{ position: 'relative' }}>
+                    <Box sx={{ position: 'relative', cursor: 'pointer' }} onClick={() => navigate(`/congreso/detalle/${timelineColors[4].replace('#', '')}`)}>
                       <Box sx={{ bgcolor: 'red', color: 'white', px: 2, py: 0.5, borderRadius: '10px 10px 0 0', width: 'fit-content', mb: 1 }}>
                         Edición 2022
                       </Box>
