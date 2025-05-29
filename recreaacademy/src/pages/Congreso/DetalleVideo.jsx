@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography, Paper, Avatar, Button, TextField } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
+import MotionReveal from "../../components/animations/MotionReveal";
 
 const DetalleVideo = () => {
   const { color } = useParams();
@@ -10,7 +11,8 @@ const DetalleVideo = () => {
     <Layout>
       <Box sx={{ display: "flex", p: 4 }}>
         {/* Contenido principal a la izquierda */}
-        <Box sx={{ flex: 1, pr: 2 }}>
+        <MotionReveal>
+          <Box sx={{ flex: 1, pr: 2 }}>
           <Typography variant="h1" fontWeight="bold" mb={3}>
             Congreso
           </Typography>
@@ -105,7 +107,8 @@ const DetalleVideo = () => {
           <Typography variant="body2" color="text.secondary">
             Esta página es un prototipo y solo representa el color elegido desde el carrusel.
           </Typography>
-        </Box>
+          </Box>
+        </MotionReveal>
 
         {/* Transcripción a la derecha */}
         <Paper

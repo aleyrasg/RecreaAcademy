@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import {
   Box,
   Typography,
@@ -66,39 +67,45 @@ const Ranking = () => {
         <Typography variant="h6" sx={{ mb: 2 }}>Desempeño del equipo</Typography>
 
         {miembros.map((miembro, index) => (
-          <Card
+          <motion.div
             key={index}
-            variant="outlined"
-            sx={{
-              mb: 2,
-              borderColor: miembro.destacado ? 'orange' : '#e0e0e0',
-              boxShadow: miembro.destacado ? '0 0 12px rgba(255,165,0,0.3)' : '',
-              borderWidth: miembro.destacado ? '2px' : '1px',
-              backgroundColor: miembro.destacado ? '#fffdf7' : '#fff',
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.2, duration: 0.5 }}
           >
-            <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <img src={medalla} alt="medalla" style={{ width: 40 }} />
+            <Card
+              variant="outlined"
+              sx={{
+                mb: 2,
+                borderColor: miembro.destacado ? 'orange' : '#e0e0e0',
+                boxShadow: miembro.destacado ? '0 0 12px rgba(255,165,0,0.3)' : '',
+                borderWidth: miembro.destacado ? '2px' : '1px',
+                backgroundColor: miembro.destacado ? '#fffdf7' : '#fff',
+              }}
+            >
+              <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <img src={medalla} alt="medalla" style={{ width: 40 }} />
 
-              <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <Avatar sx={{ mr: 2, bgcolor: '#ccc' }} />
-                  <Typography fontWeight={miembro.destacado ? 'bold' : 'normal'}>
-                    {miembro.nombre}
-                  </Typography>
-                </Box>
+                <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Avatar sx={{ mr: 2, bgcolor: '#ccc' }} />
+                    <Typography fontWeight={miembro.destacado ? 'bold' : 'normal'}>
+                      {miembro.nombre}
+                    </Typography>
+                  </Box>
 
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <Typography variant="h6" sx={{ mr: 1 }}>
-                    {miembro.porcentaje}%
-                  </Typography>
-                  <IconButton>
-                    <ArrowForwardIosIcon fontSize="small" />
-                  </IconButton>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Typography variant="h6" sx={{ mr: 1 }}>
+                      {miembro.porcentaje}%
+                    </Typography>
+                    <IconButton>
+                      <ArrowForwardIosIcon fontSize="small" />
+                    </IconButton>
+                  </Box>
                 </Box>
-              </Box>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </Box>
     </Layout>
