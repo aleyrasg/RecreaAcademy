@@ -140,6 +140,7 @@ export default function ComunidadRecrea() {
       <GlobalStyles
         styles={`@keyframes fadeSlide { from {opacity: 0; transform: translateX(-8px);} to {opacity: 1; transform: translateX(0);} }`}
       />
+      <MotionReveal index={2}>
       <Box sx={{ display: "flex", height: "100vh" }}>
         <Box sx={{ flexGrow: 1, p: 4, bgcolor: "#fdfdfd" }}>
           {!conversacionSeleccionada ? (
@@ -276,6 +277,7 @@ export default function ComunidadRecrea() {
           </Box>
         </Drawer>
       </Box>
+      </MotionReveal>
     </Layout>
   );
 }
