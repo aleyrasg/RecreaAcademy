@@ -20,6 +20,7 @@ import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import Layout from '../../components/Layout/Layout';
 import DetalleConversacion from './DetalleConversacion';
+import ModalConversacion from '../../components/ModalConversacion/ModalConversacion';
 
 const categoryStyles = {
   "General": { icon: <VolumeUpIcon sx={{ mr: 1, color: '#f50057' }} />, color: '#f50057' },
@@ -68,6 +69,10 @@ export default function ComunidadRecrea() {
   const [convs, setConvs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('General');
   const [conversacionSeleccionada, setConversacionSeleccionada] = useState(null);
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [nuevoAutor, setNuevoAutor] = useState('');
+  const [nuevoTitulo, setNuevoTitulo] = useState('');
+  const [nuevoMensaje, setNuevoMensaje] = useState('');
 
   useEffect(() => {
     setConvs(conversacionesMock);
@@ -101,6 +106,7 @@ export default function ComunidadRecrea() {
               <Button
                 variant="contained"
                 sx={{ bgcolor: categoryColor, color: '#fff', mt: 2, mb: 2, transition: 'background-color 0.3s ease', '&:hover': { bgcolor: categoryColor, opacity: 0.9 } }}
+                onClick={() => setModalAbierto(true)}
               >
                 + Nueva Conversación
               </Button>
@@ -148,6 +154,31 @@ export default function ComunidadRecrea() {
           </Box>
         </Drawer>
       </Box>
+      <ModalConversacion
+        isOpen={modalAbierto}
+        onClose={() => setModalAbierto(false)}
+        onStartConversation={() => {
+          const nuevaConv = {
+            icon: '💬',
+            titulo: nuevoTitulo,
+            autor: nuevoAutor,
+            hace: 'ahora mismo',
+            respuestas: 0,
+            categoria: selectedCategory,
+          };
+          setConvs([nuevaConv, ...convs]);
+          setModalAbierto(false);
+          setNuevoAutor('');
+          setNuevoTitulo('');
+          setNuevoMensaje('');
+        }}
+        nuevoAutor={nuevoAutor}
+        setNuevoAutor={setNuevoAutor}
+        nuevoTitulo={nuevoTitulo}
+        setNuevoTitulo={setNuevoTitulo}
+        nuevoMensaje={nuevoMensaje}
+        setNuevoMensaje={setNuevoMensaje}
+      />
     </Layout>
   );
 }
