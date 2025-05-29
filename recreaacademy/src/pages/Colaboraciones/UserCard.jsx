@@ -1,15 +1,21 @@
 import React from "react";
 
-function UserCard({ color }) {
+function UserCard({ color, onClick }) {
   return (
-    <div className="user-card" style={{ backgroundColor: color }}>
+    <div
+      className="user-card"
+      style={{ backgroundColor: color }}
+      tabIndex="0"
+      role="button"
+      aria-label={`Perfil del usuario con color ${color}`}
+      onClick={onClick}
+    >
       <div className="user-icon">👤</div>
       <div className="user-name">Usuario</div>
-     {/* <button className="follow-btn" style={{ color }}>
-        Seguir
-      </button> */}
     </div>
   );
 }
+
+
 
 export default UserCard;
