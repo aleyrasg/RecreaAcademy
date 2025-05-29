@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
@@ -23,6 +24,7 @@ import DetalleVideo from './pages/Congreso/DetalleVideo';
 import ComunidadRecrea from './pages/ComunidadRecrea/ComunidadRecrea';
 import PrivateRoute from './components/PrivateRoute';
 import DetalleEdicion from './pages/Congreso/DetalleEdicion';
+import ModalConversacion from './components/ModalConversacion/ModalConversacion';
 
 const router = createBrowserRouter(
   [

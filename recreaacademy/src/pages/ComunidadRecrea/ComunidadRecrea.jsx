@@ -13,14 +13,13 @@ import {
   ListItemIcon,
   ListSubheader,
   GlobalStyles,
-} from "@mui/material";
-import CampaignIcon from "@mui/icons-material/Campaign";
-import ChatIcon from "@mui/icons-material/Chat";
-import HowToVoteIcon from "@mui/icons-material/HowToVote";
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
-import Layout from "../../components/Layout/Layout";
-import DetalleConversacion from "./DetalleConversacion";
-import MotionReveal from "../../components/animations/MotionReveal";
+} from '@mui/material';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import ChatIcon from '@mui/icons-material/Chat';
+import HowToVoteIcon from '@mui/icons-material/HowToVote';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import Layout from '../../components/Layout/Layout';
+import DetalleConversacion from './DetalleConversacion';
 
 const categoryStyles = {
   General: {
@@ -116,9 +115,8 @@ function ListaConversaciones({ conversaciones, onSelect }) {
 
 export default function ComunidadRecrea() {
   const [convs, setConvs] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("General");
-  const [conversacionSeleccionada, setConversacionSeleccionada] =
-    useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('General');
+  const [conversacionSeleccionada, setConversacionSeleccionada] = useState(null);
 
   useEffect(() => {
     setConvs(conversacionesMock);
@@ -169,14 +167,7 @@ export default function ComunidadRecrea() {
               </Box>
               <Button
                 variant="contained"
-                sx={{
-                  bgcolor: categoryColor,
-                  color: "#fff",
-                  mt: 2,
-                  mb: 2,
-                  transition: "background-color 0.3s ease",
-                  "&:hover": { bgcolor: categoryColor, opacity: 0.9 },
-                }}
+                sx={{ bgcolor: categoryColor, color: '#fff', mt: 2, mb: 2, transition: 'background-color 0.3s ease', '&:hover': { bgcolor: categoryColor, opacity: 0.9 } }}
               >
                 + Nueva Conversación
               </Button>
@@ -277,7 +268,6 @@ export default function ComunidadRecrea() {
           </Box>
         </Drawer>
       </Box>
-      </MotionReveal>
     </Layout>
   );
 }
