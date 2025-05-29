@@ -1,4 +1,3 @@
-// DetalleConversacion.jsx
 import React, { useState } from "react";
 import {
   Box,
@@ -22,6 +21,17 @@ export default function DetalleConversacion({
   const [comentarios, setComentarios] = useState(comentariosIniciales);
   const [nuevoComentario, setNuevoComentario] = useState("");
 
+  if (!conversacion) {
+    return (
+      <Box sx={{ p: 4 }}>
+        <Typography variant="h6">No se ha encontrado la conversación seleccionada.</Typography>
+        <Button onClick={onBack} sx={{ mt: 2 }}>
+          Volver
+        </Button>
+      </Box>
+    );
+  }
+
   const agregarComentario = () => {
     if (!nuevoComentario.trim()) return;
 
@@ -37,13 +47,13 @@ export default function DetalleConversacion({
 
   return (
     <Box sx={{ p: 1 }}>
-        <Button onClick={onBack} sx={{ ml: 2 }}>
+      <Button onClick={onBack} sx={{ ml: 2 }}>
         Volver
       </Button>
       <Typography variant="h5" sx={{ fontWeight: "bold", mb: 3 }}>
         {conversacion.icon} {conversacion.titulo}
       </Typography>
-      
+
       <List>
         {comentarios.map((coment, index) => (
           <Paper

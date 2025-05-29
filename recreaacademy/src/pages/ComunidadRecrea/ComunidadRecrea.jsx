@@ -20,6 +20,7 @@ import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import Layout from '../../components/Layout/Layout';
 import DetalleConversacion from './DetalleConversacion';
+import MotionReveal from '../../components/animations/MotionReveal';
 
 const categoryStyles = {
   General: {
@@ -82,15 +83,19 @@ function ListaConversaciones({ conversaciones, onSelect }) {
         <React.Fragment key={index}>
           <ListItem
             alignItems="flex-start"
-            sx={{ bgcolor: "#fff", mb: 1, borderRadius: 2, cursor: "pointer" }}
+            sx={{
+              bgcolor: "#fff",
+              mb: 1,
+              borderRadius: 2,
+              cursor: "pointer",
+            }}
             onClick={() => onSelect(conv)}
           >
             <ListItemText
               primary={
-                <Typography
-                  variant="subtitle1"
-                  sx={{ fontWeight: 600 }}
-                >{`${conv.icon} ${conv.titulo}`}</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                  {`${conv.icon} ${conv.titulo}`}
+                </Typography>
               }
               secondary={
                 <>
@@ -112,6 +117,7 @@ function ListaConversaciones({ conversaciones, onSelect }) {
     </List>
   );
 }
+
 
 export default function ComunidadRecrea() {
   const [convs, setConvs] = useState([]);
@@ -268,6 +274,7 @@ export default function ComunidadRecrea() {
           </Box>
         </Drawer>
       </Box>
+      </MotionReveal>
     </Layout>
   );
 }
