@@ -21,6 +21,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import Layout from '../../components/Layout/Layout';
 import DetalleConversacion from './DetalleConversacion';
 import MotionReveal from '../../components/animations/MotionReveal';
+import ModalConversacion from '../../components/ModalConversacion/ModalConversacion';
 
 const categoryStyles = {
   General: {
@@ -123,6 +124,9 @@ export default function ComunidadRecrea() {
   const [convs, setConvs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('General');
   const [conversacionSeleccionada, setConversacionSeleccionada] = useState(null);
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [nuevoTitulo, setNuevoTitulo] = useState('');
+  const [nuevoMensaje, setNuevoMensaje] = useState('');
 
   useEffect(() => {
     setConvs(conversacionesMock);
@@ -174,6 +178,7 @@ export default function ComunidadRecrea() {
               <Button
                 variant="contained"
                 sx={{ bgcolor: categoryColor, color: '#fff', mt: 2, mb: 2, transition: 'background-color 0.3s ease', '&:hover': { bgcolor: categoryColor, opacity: 0.9 } }}
+                onClick={() => setModalAbierto(true)}
               >
                 + Nueva Conversación
               </Button>
@@ -275,6 +280,28 @@ export default function ComunidadRecrea() {
         </Drawer>
       </Box>
       </MotionReveal>
+      <ModalConversacion
+        isOpen={modalAbierto}
+        onClose={() => setModalAbierto(false)}
+        onStartConversation={() => {
+          const nuevaConv = {
+            icon: '💬',
+            titulo: nuevoTitulo,
+            autor: 'Anónimo',
+            hace: 'ahora mismo',
+            respuestas: 0,
+            categoria: selectedCategory,
+          };
+          setConvs([nuevaConv, ...convs]);
+          setModalAbierto(false);
+          setNuevoTitulo('');
+          setNuevoMensaje('');
+        }}
+        nuevoTitulo={nuevoTitulo}
+        setNuevoTitulo={setNuevoTitulo}
+        nuevoMensaje={nuevoMensaje}
+        setNuevoMensaje={setNuevoMensaje}
+      />
     </Layout>
   );
 }
