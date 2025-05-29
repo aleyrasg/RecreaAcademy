@@ -21,9 +21,8 @@ import Logout from './pages/Logout';
 import Congreso from './pages/Congreso/Congreso';
 import DetalleVideo from './pages/Congreso/DetalleVideo';
 import ComunidadRecrea from './pages/ComunidadRecrea/ComunidadRecrea';
-
-
 import PrivateRoute from './components/PrivateRoute';
+import DetalleEdicion from './pages/Congreso/DetalleEdicion';
 
 const router = createBrowserRouter(
   [
@@ -39,6 +38,7 @@ const router = createBrowserRouter(
     {path : '/congreso', element: <Congreso />},
     { path: '/congreso/detalle/:color', element: <DetalleVideo /> },
     {path : '/comunidad', element: <ComunidadRecrea />},
+    { path: '/edicion/:anio', element: <DetalleEdicion /> },
     // {path : '/mi-portafolio', element: <MiPortafolio />},
     // {path : '/ranking', element: <Ranking />},
 

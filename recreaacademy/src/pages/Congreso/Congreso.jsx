@@ -5,6 +5,7 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import Layout from '../../components/Layout/Layout';
 import MotionReveal from '../../components/animations/MotionReveal';
+import LineaDelTiempo from '../../components/animations/LineaDelTiempo';
 import Adriana from '../../assets/adriana-villagomez.png';
 import Carmen from '../../assets/carmen-pellicer.png';
 import Jose from '../../assets/jose-martinez.png';
@@ -12,6 +13,8 @@ import Maria from '../../assets/maria-trinidad.png';
 import Simon from '../../assets/simon-duque.png';
 import CarruselHorizontal from '../../components/animations/CarruselHorizontal';
 import { useNavigate } from 'react-router-dom';
+import PonenteCard from '../../components/PonenteCard/PonenteCard';
+import EdicionCard from "../../components/EdicionCard/EditionCard";
 
 const Congreso = () => {
   const navigate = useNavigate();
@@ -78,6 +81,21 @@ const Congreso = () => {
     setSelectedVideo(null);
   };
 
+  const ediciones = [
+    {
+      year: 2022,
+      title: "IA en el Aula",
+      image: Carmen,
+      color: "#FE6F60"
+    },
+    {
+      year: 2023,
+      title: "Educación Emocional",
+      image: Simon,
+      color: "#1F9CD0"
+    }
+  ];
+
   return (
     <Layout>
       {/* Main Content */}
@@ -88,50 +106,7 @@ const Congreso = () => {
 
         {/* Timeline */}
         <MotionReveal index={2}>
-          <Box sx={{ my: 4, position: 'relative' }}>
-            <Box sx={{ height: 5, display: 'flex', borderRadius: 5, overflow: 'hidden' }}>
-              {timelineColors.map((color, index) => (
-                <Box key={index} sx={{ flex: 1, bgcolor: color }} />
-              ))}
-            </Box>
-            <Grid container justifyContent="space-between" alignItems="center" sx={{ mt: 2 }}>
-              {timelineYears.map((year) => (
-                <Grid item key={year} sx={{ textAlign: 'center' }}>
-                  <Tooltip
-                    placement="top"
-                    arrow
-                    enterDelay={500}
-                    title={
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <img src="/assets/profesora_animada.png" alt="Profesora" width="40" />
-                        <Typography variant="caption" sx={{ fontStyle: 'italic' }}>
-                          ¡Haz clic en este año para ver sus videos!
-                        </Typography>
-                      </Box>
-                    }
-                  >
-                    <Box
-                      className={selectedYear === year ? 'selected-year' : ''}
-                      sx={{
-                        width: 20,
-                        height: 20,
-                        borderRadius: '50%',
-                        backgroundColor: selectedYear === year ? '#E6007E' : '#ccc',
-                        cursor: 'pointer',
-                        transition: 'background-color 0.3s ease',
-                        '&:hover': {
-                          backgroundColor: '#FE8A12',
-                          boxShadow: '0 0 8px rgba(0,0,0,0.2)',
-                        },
-                      }}
-                      onClick={() => setSelectedYear(year)}
-                    />
-                  </Tooltip>
-                  <Typography>{year}</Typography>
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
+          <LineaDelTiempo onYearClick={setSelectedYear} selectedYear={selectedYear} />
         </MotionReveal>
 
         {/* Multimedia Content */}
@@ -145,83 +120,20 @@ const Congreso = () => {
 
        
             
-        {/* Nueva sección: Categorías, Ediciones y Ponente destacado */}
-        <MotionReveal index={5}>
-          <Box sx={{ mt: 5 }}>
-            {/* Categorías */}
-            <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
+        <MotionReveal index={6}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+            <Box sx={{ display: 'flex', gap: 2 }}>
               <Chip label="IA" sx={{ backgroundColor: '#1F9CD0', color: 'white', fontWeight: 'bold' }} />
               <Chip label="Gamificación" sx={{ backgroundColor: '#3CB043', color: 'white', fontWeight: 'bold' }} />
               <Chip label="Neuroeducación" sx={{ backgroundColor: '#D32F2F', color: 'white', fontWeight: 'bold' }} />
             </Box>
-
-            {/* Contenido dividido */}
-            <Grid container spacing={4}>
-              {/* Ediciones */}
-              <Grid item xs={12} md={8}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
-                    <Box sx={{ position: 'relative', cursor: 'pointer' }} onClick={() => navigate(`/congreso/detalle/${timelineColors[4].replace('#', '')}`)}>
-                      <Box sx={{ bgcolor: 'red', color: 'white', px: 2, py: 0.5, borderRadius: '10px 10px 0 0', width: 'fit-content', mb: 1 }}>
-                        Edición 2022
-                      </Box>
-                      <Paper sx={{ borderRadius: 2, overflow: 'hidden', width: '100%', height: 300 }}>
-                        <img src={Carmen} alt="Carmen Pellicer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                      </Paper>
-                      <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-                        <Typography variant="body1" fontWeight="bold">
-                          Edición
-                        </Typography>
-                        <Chip label="2022" color="success" size="small" sx={{ mx: 1 }} />
-                        <Typography variant="body1" fontWeight="bold">
-                          IA en el Aula
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <Paper sx={{ p: 2, borderRadius: 2, bgcolor: '#E0F2F1', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                      <img src={Simon} alt="Simón Duque" style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 8 }} />
-                      <Typography mt={2} fontWeight="bold">Edición 2023</Typography>
-                    </Paper>
-                  </Grid>
-                </Grid>
-              </Grid>
-
-              {/* Ponente destacado */}
-              <Grid item xs={12} md={4}>
-                <Typography variant="h6" fontWeight="bold">Ponente destacado</Typography>
-                <Paper sx={{ mt: 2, p: 2, borderRadius: 2, textAlign: 'center' }}>
-                  <Box sx={{ height: 250, overflow: 'hidden', borderRadius: '10px' }}>
-                    <img src={ponentes[0].imagen} alt={ponentes[0].nombre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </Box>
-                  <Typography fontWeight="bold" mt={2}>{ponentes[0].nombre}</Typography>
-                  <Typography variant="body2" mt={1}>
-                    “{ponentes[0].cita}”
-                  </Typography>
-                  <Button
-                    variant="contained"
-                    sx={{ mt: 2, backgroundColor: '#E6007E' }}
-                    onClick={() => navigate(`/congreso/detalle/${ponentes[0].nombre.toLowerCase().replace(/\s+/g, '-')}`)}
-                  >
-                    Ver su charla
-                  </Button>
-                </Paper>
-              </Grid>
-            </Grid>
-          </Box>
-        </MotionReveal>
-
-        {/* Search Bar */}
-        <MotionReveal index={6}>
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2, alignItems: 'center' }}>
             <TextField
               placeholder="Buscar"
               variant="outlined"
               size="small"
               InputProps={{
                 endAdornment: (
-                  <InputAdornment position="end" sx={{ mt: '-4px' }}>
+                  <InputAdornment position="end">
                     <SearchIcon />
                   </InputAdornment>
                 )
@@ -230,6 +142,45 @@ const Congreso = () => {
             />
           </Box>
         </MotionReveal>
+
+        {/* Nueva sección: Ediciones y Ponente destacado */}
+        <MotionReveal index={5}>
+          <Box sx={{ mt: 5 }}>
+            {/* Contenido dividido */}
+            <Grid container spacing={4}>
+              {/* Ediciones */}
+              <Grid item xs={12} md={8}>
+                <Grid container spacing={2}>
+                  {ediciones.map((edicion, index) => (
+                    <Grid item xs={12} sm={6} key={index}>
+                      <EdicionCard
+                        year={edicion.year}
+                        title={edicion.title}
+                        image={edicion.image}
+                        color={edicion.color}
+                        path={`/detalle-edicion/${edicion.year}`}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
+              </Grid>
+
+              {/* Ponente destacado */}
+              <Grid item xs={12} md={4}>
+                <Typography variant="h6" fontWeight="bold">Ponente destacado</Typography>
+                <Box sx={{ mt: 2 }}>
+                  <PonenteCard
+                    nombre={ponentes[0].nombre}
+                    cita={ponentes[0].cita}
+                    image={ponentes[0].imagen}
+                    onClick={() => navigate(`/congreso/detalle/${ponentes[0].nombre.toLowerCase().replace(/\s+/g, '-')}`)}
+                  />
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
+        </MotionReveal>
+
       </Box>
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogContent sx={{ p: 0 }}>
