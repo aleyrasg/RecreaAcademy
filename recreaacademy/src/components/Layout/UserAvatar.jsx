@@ -1,64 +1,79 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Stack from '@mui/material/Stack';
-import { deepOrange } from '@mui/material/colors';
-import { useGetUser } from '../../hooks/useGetUser';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Avatar,
+  Menu,
+  MenuItem,
+  Stack,
+  Divider
+} from "@mui/material";
+import { deepOrange } from "@mui/material/colors";
+import { useGetUser } from "../../hooks/useGetUser";
+import CuentaModal from '../../components/CuentaModal';
+
+const ABRE_CUENTA = 'abreCuenta';
 
 export default function UserAvatar() {
-    const { user } = useGetUser()
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+  const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
+  const { user } = useGetUser();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    return (
-        <Stack direction="row" spacing={2} justifyContent='end'>
-            <Avatar
-                sx={{ bgcolor: deepOrange[500] }}
-                alt={user?.name}
-                src="/broken-image.jpg"
-                onClick={handleClick}
-            >
-            </Avatar>
+  const handleMenuClick = (url) => {
+    if (url === ABRE_CUENTA) {
+        handleOpenModal();
+        return;
+    }
+    navigate(url);
+  };
 
-            <Menu
-                id="basic-menu"
-                open={open}
-                anchorEl={anchorEl}
-                onClose={handleClose}
-            >
+    const handleOpenModal = () => setOpenModal(true);
+    const handleCloseModal = () => setOpenModal(false);
+  
+  
+  return (
+    <>
+      <Stack direction="row" spacing={2} justifyContent="end">
+        <Avatar
+          sx={{ bgcolor: deepOrange[500] }}
+          alt={user?.name}
+          src="/broken-image.jpg"
+          onClick={handleClick}
+        />
 
-                {user?.email ?
-                    (<>
-                        <MenuItem>
-                            <Link to="/mi-portafolio">
-                                {user?.email}
-                            </Link>
-                        </MenuItem>
-                        <MenuItem>
-                            <Link to="/logout">
-                                Logout
-                            </Link>
-                        </MenuItem>
-                    </>)
-
-                    :
-                    (<>
-                        <MenuItem>
-                            <Link to="/login">
-                                Login
-                            </Link>
-                        </MenuItem>
-                    </>)
-                }
-            </Menu>
-        </Stack>
-    );
+        <Menu
+          id="basic-menu"
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+        >
+          {user?.email ? (
+            <>
+              <MenuItem onClick={() => handleMenuClick(ABRE_CUENTA)}>
+                {user?.email}
+              </MenuItem>
+              <Divider />
+              <MenuItem onClick={() => handleMenuClick("/logout")}>
+                Logout
+              </MenuItem>
+            </>
+          ) : (
+            <>
+              <MenuItem onClick={() => handleMenuClick("/login")}>
+                Login
+              </MenuItem>
+            </>
+          )}
+        </Menu>
+      </Stack>
+      <CuentaModal open={openModal} onClose={handleCloseModal}/>
+    </>
+  );
 }
