@@ -1,47 +1,50 @@
-import React from "react";
 import {
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
-  TextField,
   Button,
-  Select,
-  MenuItem,
 } from "@mui/material";
+
+import RAinput from "../../components/form/RAinput";
+import RAtextarea from "../../components/form/RAtextarea";
+import RAselect from "../../components/form/RAselect";
 
 function NewProjectDialog({ open, onClose, newProject, setNewProject, onCreate }) {
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Nuevo Proyecto</DialogTitle>
       <DialogContent>
-        <TextField
+        <RAinput
+          autoFocus
           label="Título"
-          fullWidth
-          margin="normal"
           value={newProject.title}
           onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
         />
-        <TextField
+        <RAtextarea
           label="Descripción"
-          fullWidth
-          multiline
-          rows={4}
-          margin="normal"
           value={newProject.description}
           onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
         />
-        <Select
-          fullWidth
+        <RAselect
           value={newProject.category}
           onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
-          sx={{ marginTop: 2 }}
-        >
-          <MenuItem value="Destacados">Destacados</MenuItem>
-          <MenuItem value="Nuevos">Nuevos</MenuItem>
-          <MenuItem value="Participando">Participando</MenuItem>
-          <MenuItem value="Mis propuestas">Mis propuestas</MenuItem>
-        </Select>
+          options={[
+            {
+              value: 'Destacados', label: 'Destacados',
+            },
+            {
+              value: 'Nuevos', label: 'Nuevos',
+            },
+            {
+              value: 'Participando', label: 'Participando',
+            },
+            {
+              value: 'Mis propuestas', label: 'Mis propuestas',
+            },
+
+          ]}
+        />
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancelar</Button>
