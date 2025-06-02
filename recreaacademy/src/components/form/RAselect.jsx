@@ -1,4 +1,4 @@
-import { InputLabel, FormControl, Select, MenuItem } from "@mui/material";
+import { Box, InputLabel, FormControl, Select, MenuItem } from "@mui/material";
 
 const RAselect = ({
   name,
@@ -10,9 +10,11 @@ const RAselect = ({
   options,
 }) => {
   return (
-    <>
+    <Box marginTop='15px'>
+    <FormControl fullWidth>
       <InputLabel id={`label_${name}`}>{label}</InputLabel>
       <Select
+        fullWidth
         labelId={`label_${name}`}
         id={name}
         name={name}
@@ -28,7 +30,8 @@ const RAselect = ({
           </MenuItem>
         ))}
       </Select>
-    </>
+    </FormControl>
+    </Box>
   );
 };
 

@@ -7,6 +7,7 @@ const RAinput = ({
   type = "text",
   autoFocus = false,
   required = false,
+  rows = 4,
   onChange
 }) => {
   console.log('input: ', value)
@@ -20,6 +21,8 @@ const RAinput = ({
       label={label}
       type={type}
       fullWidth
+      multiline
+      rows={rows}
       defaultValue={value}
       onChange={onChange}
     />

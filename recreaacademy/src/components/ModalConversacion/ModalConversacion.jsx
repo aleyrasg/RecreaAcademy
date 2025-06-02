@@ -1,6 +1,9 @@
-import React from 'react';
 import './ModalConversacion.css';
-import { TextField, Button } from '@mui/material';
+import { Button } from '@mui/material';
+
+
+import RAinput from "../../components/form/RAinput";
+import RAtextarea from "../../components/form/RAtextarea";
 
 const ModalConversacion = ({ isOpen, onClose, onStartConversation, nuevoTitulo, setNuevoTitulo, nuevoMensaje, setNuevoMensaje }) => {
   if (!isOpen) return null;
@@ -9,21 +12,13 @@ const ModalConversacion = ({ isOpen, onClose, onStartConversation, nuevoTitulo, 
     <div className="modal-overlay">
       <div className="modal-content">
         <h2>Iniciar nueva conversación</h2>
-        <TextField
+        <RAinput
           label="Título"
-          variant="outlined"
-          fullWidth
-          margin="normal"
           value={nuevoTitulo}
           onChange={(e) => setNuevoTitulo(e.target.value)}
         />
-        <TextField
+        <RAtextarea
           label="Mensaje"
-          variant="outlined"
-          fullWidth
-          multiline
-          rows={4}
-          margin="normal"
           value={nuevoMensaje}
           onChange={(e) => setNuevoMensaje(e.target.value)}
         />

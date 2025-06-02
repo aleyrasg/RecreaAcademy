@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Avatar,
   Menu,
@@ -10,12 +10,14 @@ import {
 import { deepOrange } from "@mui/material/colors";
 import { useGetUser } from "../../hooks/useGetUser";
 import CuentaModal from '../../components/CuentaModal';
+import { getRecord, getTable, createRecord, updateRecord } from "../../utils/db";
 
 const ABRE_CUENTA = 'abreCuenta';
 
 export default function UserAvatar() {
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useGetUser();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -28,16 +30,36 @@ export default function UserAvatar() {
 
   const handleMenuClick = (url) => {
     if (url === ABRE_CUENTA) {
-        handleOpenModal();
-        return;
+      handleOpenModal();
+      return;
     }
     navigate(url);
   };
 
-    const handleOpenModal = () => setOpenModal(true);
-    const handleCloseModal = () => setOpenModal(false);
-  
-  
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
+
+  const verifyUser = async (email) => {
+    const usr = await getRecord('usuarios', 'correo', email);
+    if (!usr) {
+      createRecord('usuarios', {
+        contrasena: "",
+        correo: email,
+        fecha_registro: "2025/05/30",
+        institucion_id: 1,
+        nivel_educativo_id: 1,
+        nombre: user?.name,
+        tipo: 1
+      })
+    }
+  };
+
+  useEffect(() => {
+    if (user?.email && location.pathname === '/') {
+      verifyUser(user?.email);
+    }
+  }, [location.pathname, user?.email]);
+
   return (
     <>
       <Stack direction="row" spacing={2} justifyContent="end">
@@ -73,7 +95,7 @@ export default function UserAvatar() {
           )}
         </Menu>
       </Stack>
-      <CuentaModal open={openModal} onClose={handleCloseModal}/>
+      { openModal && <CuentaModal open={openModal} onClose={handleCloseModal} />} 
     </>
   );
 }
