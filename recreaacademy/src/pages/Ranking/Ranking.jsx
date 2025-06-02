@@ -1,23 +1,26 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import {
   Box,
   Typography,
   Avatar,
-  Card,
-  CardContent,
-  IconButton,
 } from '@mui/material';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Ranking.css';
 import Layout from '../../components/Layout/Layout';
 import medalla from '../../assets/medalla.png';
+import EncabezadoRanking from '../../components/EncabezadoRanking/EncabezadoRanking';
+import ListaMiembrosAnimada from '../../components/ListaMiembrosAnimada/ListaMiembrosAnimada';
+import ResumenRankingDerecha from '../../components/ResumenRankingDerecha/ResumenRankingDerecha';
 
 const miembros = [
   { nombre: 'Luis Castañeda', porcentaje: 78 },
   { nombre: 'Sofia Castellanos', porcentaje: 82, destacado: true },
   { nombre: 'Alejandra Sánchez', porcentaje: 69 },
-];
+]
+  .sort((a, b) => b.porcentaje - a.porcentaje)
+  .map((m, i) => ({
+    ...m,
+    medalla: i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : ''
+  }));
 
 const Ranking = () => {
   return (
@@ -64,49 +67,12 @@ const Ranking = () => {
           </Box>
         </Box>
 
-        <Typography variant="h6" sx={{ mb: 2 }}>Desempeño del equipo</Typography>
+        <EncabezadoRanking />
 
-        {miembros.map((miembro, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2, duration: 0.5 }}
-          >
-            <Card
-              variant="outlined"
-              sx={{
-                mb: 2,
-                borderColor: miembro.destacado ? 'orange' : '#e0e0e0',
-                boxShadow: miembro.destacado ? '0 0 12px rgba(255,165,0,0.3)' : '',
-                borderWidth: miembro.destacado ? '2px' : '1px',
-                backgroundColor: miembro.destacado ? '#fffdf7' : '#fff',
-              }}
-            >
-              <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <img src={medalla} alt="medalla" style={{ width: 40 }} />
-
-                <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Avatar sx={{ mr: 2, bgcolor: '#ccc' }} />
-                    <Typography fontWeight={miembro.destacado ? 'bold' : 'normal'}>
-                      {miembro.nombre}
-                    </Typography>
-                  </Box>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography variant="h6" sx={{ mr: 1 }}>
-                      {miembro.porcentaje}%
-                    </Typography>
-                    <IconButton>
-                      <ArrowForwardIosIcon fontSize="small" />
-                    </IconButton>
-                  </Box>
-                </Box>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <ListaMiembrosAnimada miembros={miembros} medalla={medalla} />
+          <ResumenRankingDerecha miembros={miembros} />
+        </Box>
       </Box>
     </Layout>
   );
