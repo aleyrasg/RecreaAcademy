@@ -10,7 +10,7 @@ import {
 import { deepOrange } from "@mui/material/colors";
 import { useGetUser } from "../../hooks/useGetUser";
 import CuentaModal from '../../components/CuentaModal';
-import { getRecord, getTable, createRecord, updateRecord } from "../../utils/db";
+import { getRecord, createRecord } from "../../utils/db";
 
 const ABRE_CUENTA = 'abreCuenta';
 
@@ -40,16 +40,16 @@ export default function UserAvatar() {
   const handleCloseModal = () => setOpenModal(false);
 
   const verifyUser = async (email) => {
-    const usr = await getRecord('usuarios', 'correo', email);
+    const usr = await getRecord('usuarios', 'correo', email, 'id_usuario');
     if (!usr) {
       createRecord('usuarios', {
-        contrasena: "",
         correo: email,
         fecha_registro: "2025/05/30",
         institucion_id: 1,
         nivel_educativo_id: 1,
         nombre: user?.name,
-        tipo: 1
+        tipo: 1,
+        isGoogleAcount: true
       })
     }
   };

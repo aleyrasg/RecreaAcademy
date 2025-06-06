@@ -18,13 +18,13 @@ import MiPortafolio from './pages/Portafolio/MiPortafolio';
 import Ranking from './pages/Ranking/Ranking';
 import NotFound from './pages/NotFound';
 import LoginPage from './pages/Login/LoginPage';
+import RegistroPage from './pages/Registro/RegistroPage';
 import Logout from './pages/Logout';
 import Congreso from './pages/Congreso/Congreso';
 import DetalleVideo from './pages/Congreso/DetalleVideo';
 import ComunidadRecrea from './pages/ComunidadRecrea/ComunidadRecrea';
 import PrivateRoute from './components/PrivateRoute';
 import DetalleEdicion from './pages/Congreso/DetalleEdicion';
-import ModalConversacion from './components/ModalConversacion/ModalConversacion';
 
 const router = createBrowserRouter(
   [
@@ -32,6 +32,7 @@ const router = createBrowserRouter(
     { path: '/home', element: <Home /> },
     { path: '/login', element: <LoginPage /> },
     { path: '/logout', element: <Logout /> },
+    { path: '/Registro', element: <RegistroPage /> },
 
     { path: '/rutas-formativas', element: <RutasFormativas /> },
     { path: '/innovaciones', element: <Innovaciones /> },
