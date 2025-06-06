@@ -13,14 +13,10 @@ import { getRecord, getTable, updateRecord } from "../utils/db";
 import { useGetUser } from "../hooks/useGetUser";
 
 const DEFAULT_USER = {
-  contrasena: "",
   correo: "",
-  fecha_registro: "2025/05/30",
-  id_usuario: 0,
   institucion_id: 1,
   nivel_educativo_id: 1,
-  nombre: "",
-  tipo: 1
+  nombre: ""
 };
 
 export default function CuentaModal({ open, onClose }) {
@@ -52,7 +48,7 @@ export default function CuentaModal({ open, onClose }) {
 
   const getUser = useCallback(async () => {
     if (user?.email) {
-      const usr = await getRecord("usuarios", "correo", user?.email);
+      const usr = await getRecord("usuarios", "correo", user?.email, 'nombre, correo, tipo, institucion_id, nivel_educativo_id');
       if (usr) setDatos(usr);
       console.log('entre')
     }
