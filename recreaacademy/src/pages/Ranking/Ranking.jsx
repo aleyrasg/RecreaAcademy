@@ -43,7 +43,9 @@ const Ranking = () => {
         </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 3 }}>
-          <h1>Ranking</h1>
+          <Typography variant="h4" fontWeight="bold" sx={{ color: '#FC083B', textAlign: 'left' }}>
+            Desempeño del equipo
+          </Typography>
           <Box>
             <Typography variant="body2" fontWeight="medium">Integrantes del equipo (26)</Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 0.5 }}>
@@ -67,7 +69,7 @@ const Ranking = () => {
           </Box>
         </Box>
 
-        <EncabezadoRanking />
+
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <ListaMiembrosAnimada miembros={miembros} medalla={medalla} />

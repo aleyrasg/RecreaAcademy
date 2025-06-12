@@ -14,6 +14,8 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 
+import Tilt from "react-parallax-tilt";
+
 import carlosImg from "../../assets/carlos-anaya.png";
 import elisaImg from "../../assets/elisa-guerra.png";
 import manuelImg from "../../assets/manuel-obrien.png";
@@ -50,7 +52,7 @@ const conferencistas = [
 export default function Eventos() {
   return (
     <Layout>
-      <Box className="eventos-container" sx={{ px: 4, pt: 4, pb: 2, width: "100%" }}>
+      <Box className="eventos-container" sx={{ px: 2, pt: 4, pb: 2, width: "100%", maxWidth: "960px", margin: "0 auto" }}>
         <Box
           sx={{
             display: "flex",
@@ -144,60 +146,52 @@ export default function Eventos() {
           >
             {conferencistas.map((c, i) => (
               <SwiperSlide key={i}>
-                <Card
-                  sx={{
-                    backgroundColor: c.color,
-                    color: "white",
-                    borderRadius: 3,
-                    width: 250,
-                    height: 420,
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-start",
-                    boxShadow: 3,
-                    animation: `bounce-${i} 1.9s ease infinite`,
-                    animationDelay: `${i * 0.4}s`,
-                  }}
+                <Tilt
+                  tiltMaxAngleX={15}
+                  tiltMaxAngleY={15}
+                  glareEnable={true}
+                  glareMaxOpacity={0.3}
+                  scale={1.05}
+                  transitionSpeed={2500}
+                  style={{ borderRadius: "12px", width: "250px", height: "420px" }}
                 >
-                  <CardMedia
-                    component="img"
-                    height="240"
-                    image={c.imagen}
-                    alt={c.nombre}
+                  <Card
                     sx={{
-                      objectFit: "cover",
-                      borderTopLeftRadius: "12px",
-                      borderTopRightRadius: "12px",
+                      backgroundColor: c.color,
+                      color: "white",
+                      borderRadius: 3,
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "flex-start",
+                      boxShadow: 3,
                     }}
-                  />
-                  <CardContent>
-                    <Typography variant="h6" fontWeight="bold">
-                      {c.nombre}
-                    </Typography>
-                    <Typography variant="body2">{c.descripcion}</Typography>
-                  </CardContent>
-                </Card>
+                  >
+                    <CardMedia
+                      component="img"
+                      height="240"
+                      image={c.imagen}
+                      alt={c.nombre}
+                      sx={{
+                        objectFit: "cover",
+                        borderTopLeftRadius: "12px",
+                        borderTopRightRadius: "12px",
+                      }}
+                    />
+                    <CardContent>
+                      <Typography variant="h6" fontWeight="bold">
+                        {c.nombre}
+                      </Typography>
+                      <Typography variant="body2">{c.descripcion}</Typography>
+                    </CardContent>
+                  </Card>
+                </Tilt>
               </SwiperSlide>
             ))}
           </Swiper>
         </MotionReveal>
       </Box>
-      <style>{`
-        ${conferencistas
-          .map(
-            (_, i) => `
-          @keyframes bounce-${i} {
-            0%, 100% {
-              transform: translateY(0);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-          }
-        `
-          )
-          .join("\n")}
-      `}</style>
     </Layout>
   );
 }
