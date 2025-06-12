@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { TextField } from "@mui/material";
 
 const RAinput = ({
@@ -8,18 +7,10 @@ const RAinput = ({
   type = "text",
   autoFocus = false,
   required = false,
+  rows = 4,
   onChange
 }) => {
-  const [error, setError] = useState(false);
-  const handleChange = e => {
-    onChange(e);
-    if (e.target.validity.valid) {
-      setError(false);
-    } else {
-      setError(true);
-    }
-  };
-
+  console.log('input: ', value)
   return (
     <TextField
       autoFocus={autoFocus}
@@ -30,10 +21,10 @@ const RAinput = ({
       label={label}
       type={type}
       fullWidth
+      multiline
+      rows={rows}
       defaultValue={value}
-      onChange={handleChange}
-      error={error}
-      helperText={error ? "Valor incorrecto": ''}
+      onChange={onChange}
     />
   );
 };

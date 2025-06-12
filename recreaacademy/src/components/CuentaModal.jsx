@@ -4,23 +4,19 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
+  Skeleton
 } from "@mui/material";
 import RAinput from "../components/form/RAinput";
 import RAselect from "../components/form/RAselect";
-import { getRecord, getTable, createRecord, updateRecord } from "../utils/db";
+import { getRecord, getTable, updateRecord } from "../utils/db";
 import { useGetUser } from "../hooks/useGetUser";
 
 const DEFAULT_USER = {
-  contrasena: "",
   correo: "",
-  fecha_registro: "2025/05/30",
-  id_usuario: 0,
   institucion_id: 1,
   nivel_educativo_id: 1,
-  nombre: "",
-  tipo: 1
+  nombre: ""
 };
 
 export default function CuentaModal({ open, onClose }) {
@@ -30,7 +26,7 @@ export default function CuentaModal({ open, onClose }) {
   const { user } = useGetUser();
 
   const updateSupa = async () => {
-    await updateRecord("usuarios", datos, {correo: user?.email})
+    await updateRecord("usuarios", datos, { correo: user?.email })
     onClose()
   };
 
@@ -51,9 +47,11 @@ export default function CuentaModal({ open, onClose }) {
   }, []);
 
   const getUser = useCallback(async () => {
-    const usr = await getRecord("usuarios", "correo", user?.email);
-    if(usr) setDatos(usr);
-    console.log('entre')
+    if (user?.email) {
+      const usr = await getRecord("usuarios", "correo", user?.email, 'nombre, correo, tipo, institucion_id, nivel_educativo_id');
+      if (usr) setDatos(usr);
+      console.log('entre')
+    }
   }, [user?.email]);
 
   useEffect(() => {
@@ -78,51 +76,55 @@ export default function CuentaModal({ open, onClose }) {
       slotProps={{
         paper: {
           component: "form",
-          onSubmit: (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries(formData.entries());
-            const email = formJson.email;
-            console.log(email);
-            onClose();
-          },
         },
       }}
     >
       <DialogTitle>Cuenta de Usuario</DialogTitle>
       <DialogContent>
-        <RAinput
-          autoFocus
-          required
-          label="Nombre"
-          name="nombre"
-          value={datos?.nombre}
-          onChange={handleChange}
-        />
-        <RAinput
-          required
-          name="correo"
-          label="Correo"
-          type="email"
-          value={datos?.correo}
-          onChange={handleChange}
-        />
-        <RAselect
-          required
-          name="institucion_id"
-          label="Institución"
-          value={datos?.institucion_id}
-          options={getIntsOptions()}
-          onChange={handleChange}
-        />
-        <RAselect
-          required
-          name="nivel_educativo_id"
-          label="Nivel Educativo"
-          value={datos?.nivel_educativo_id}
-          options={getNivelesOptions()}
-          onChange={handleChange}
-        />
+
+        {
+          (!datos.correo) ?
+            <>
+              <Skeleton variant="circular" width={40} height={40} />
+              <Skeleton variant="rectangular" width={210} height={60} />
+              <Skeleton variant="rounded" width={210} height={60} />
+            </>
+            :
+            <>
+              <RAinput
+                autoFocus
+                required
+                label="Nombre"
+                name="nombre"
+                value={datos?.nombre}
+                onChange={handleChange}
+              />
+              <RAinput
+                required
+                name="correo"
+                label="Correo"
+                type="email"
+                value={datos?.correo}
+                onChange={handleChange}
+              />
+              <RAselect
+                required
+                name="institucion_id"
+                label="Institución"
+                value={datos?.institucion_id}
+                options={getIntsOptions()}
+                onChange={handleChange}
+              />
+              <RAselect
+                required
+                name="nivel_educativo_id"
+                label="Nivel Educativo"
+                value={datos?.nivel_educativo_id}
+                options={getNivelesOptions()}
+                onChange={handleChange}
+              />
+            </>
+        }
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancelar</Button>
