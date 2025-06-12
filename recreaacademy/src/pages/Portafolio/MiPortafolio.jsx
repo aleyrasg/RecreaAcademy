@@ -12,6 +12,7 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import Layout from "../../components/Layout/Layout";
 import MotionReveal from "../../components/animations/MotionReveal";
+import { motion } from "framer-motion";
 
 const MetricaCard = ({ icon, value, label, color }) => (
   <Box sx={{ textAlign: "center", minWidth: 120 }}>
@@ -25,7 +26,65 @@ const MetricaCard = ({ icon, value, label, color }) => (
   </Box>
 );
 
+const RutaFormativaCard = ({ titulo, descripcion, icono, color }) => (
+  <motion.div whileHover={{ scale: 1.05 }} style={{ flexGrow: 1 }}>
+    <Paper
+      elevation={4}
+      sx={{
+        backgroundColor: color,
+        borderRadius: 3,
+        padding: 3,
+        textAlign: "center",
+        color: "white",
+        height: 150,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        width: 180,
+      }}
+    >
+      <Box mb={2} display="flex" justifyContent="center">
+        {icono}
+      </Box>
+      <Typography variant="h6" fontWeight="bold">
+        {titulo}
+      </Typography>
+      <Typography variant="body2" mt={1}>
+        {descripcion}
+      </Typography>
+    </Paper>
+  </motion.div>
+);
+
 function MiPortafolio() {
+  const rutas = [
+    {
+      titulo: "Challenges",
+      descripcion: "Continúa con tus 2 challenges",
+      icono: <EmojiEvents sx={{ fontSize: 48, color: 'white' }} />,
+      color: "#FFB127"
+    },
+    {
+      titulo: "Innova CAD",
+      descripcion: "Continúa innovando",
+      icono: <EmojiObjectsIcon sx={{ fontSize: 48, color: 'white' }} />,
+      color: "#FC7D04"
+    },
+    {
+      titulo: "Comunidad Normalista",
+      descripcion: "Explora más Comunidad Normalista",
+      icono: <MenuBookIcon sx={{ fontSize: 48, color: 'white' }} />,
+      color: "#EA7064"
+    },
+    {
+      titulo: "Fractal Educativo",
+      descripcion: "Explora Fractal Educativo",
+      icono: <AutoStoriesIcon sx={{ fontSize: 48, color: 'white' }} />,
+      color: "#C4DC2F"
+    }
+  ];
+
   return (
     <Layout>
       <Box sx={{ padding: 4 }}>
@@ -94,40 +153,13 @@ function MiPortafolio() {
         <MotionReveal index={2}>
           <h2>Mis Rutas Formativas</h2>
           <Grid container spacing={2} mb={4}>
-            <Grid item xs={6} md={3}>
-              <Paper sx={{ backgroundColor: "#FFB127", p: 2 }}>
-                <EmojiEvents fontSize="large" sx={{ color: "#fff" }} />
-                <Typography fontWeight="bold">Challenges</Typography>
-                <Typography variant="body2">
-                  Continúa con tus 2 challenges
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Paper sx={{ backgroundColor: "#FC7D04", p: 2 }}>
-                <EmojiObjectsIcon fontSize="large" sx={{ color: "#fff" }} />
-                <Typography fontWeight="bold">Innova CAD</Typography>
-                <Typography variant="body2">Continúa innovando</Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Paper sx={{ backgroundColor: "#EA7064", p: 2 }}>
-                <MenuBookIcon fontSize="large" sx={{ color: "#fff" }} />
-                <Typography fontWeight="bold">Comunidad Normalista</Typography>
-                <Typography variant="body2">
-                  Explora más Comunidad Normalista
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Paper sx={{ backgroundColor: "#C4DC2F", p: 2 }}>
-                <AutoStoriesIcon fontSize="large" sx={{ color: "#fff" }} />
-                <Typography fontWeight="bold">Fractal Educativo</Typography>
-                <Typography variant="body2">
-                  Explora Fractal Educativo
-                </Typography>
-              </Paper>
-            </Grid>
+            {rutas.map((ruta, index) => (
+              <Grid xs={12} md={4} key={index}>
+                <Box sx={{ p: 2 }}>
+                  <RutaFormativaCard {...ruta} />
+                </Box>
+              </Grid>
+            ))}
           </Grid>
         </MotionReveal>
 
