@@ -81,7 +81,7 @@ const Ranking = () => {
         </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1, mb: 3 }}>
-          <Typography variant="h4" fontWeight="bold" sx={{ color: '#FC083B', textAlign: 'left' }}>
+          <Typography variant="h1" fontWeight="bold" sx={{ color: '#FC083B', textAlign: 'left' }}>
             Mis logros
           </Typography>
           <Box>
