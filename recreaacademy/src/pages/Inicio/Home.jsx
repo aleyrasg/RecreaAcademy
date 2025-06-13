@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import parabotonempieza from "../../assets/parabotonempieza.png";
+import parabotonempieza from "../../assets/parabotonempieza.jpeg";
 import Layout from '../../components/Layout/Layout';
 import './Home.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -88,10 +88,12 @@ const Home = () => {
             Una comunidad para docentes que inspiran y transforman
           </h2>
           <button className="btn-empezar" onClick={() => setMostrarImagen(true)}>Empieza</button>
-          <h3 className="subtitulo">Más que una plataforma</h3>
-          <p className="descripcion">
-            Un espacio creado por y para docentes de Jalisco que creen en el poder de la educación con propósito en comunidad.
-          </p>
+          <div className="subtitulo-descripcion-container centrado">
+            <h3 className="subtitulo">Más que una plataforma</h3>
+            <p className="descripcion">
+              Un espacio creado por y para docentes de Jalisco que creen en el poder de la educación con propósito en comunidad.
+            </p>
+          </div>
         </div>
 
         <div className="testimonios-section">

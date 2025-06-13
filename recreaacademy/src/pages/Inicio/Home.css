@@ -43,9 +43,11 @@
   }
   
   .descripcion {
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    font-size: 1rem;
+    font-size: 1rem !important;
+    max-width: 800px;
+    margin: 0 auto 2rem !important;
+    text-align: center !important;
+    display: block !important;
   }
   
   .testimonios-section {
