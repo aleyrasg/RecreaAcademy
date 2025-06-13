@@ -9,6 +9,7 @@ import ArcoRecrea from '../../components/ArcoRecrea/ArcoRecrea';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import MotionReveal from "../../components/animations/MotionReveal";
 
 const testimonios = [
   {
@@ -74,6 +75,7 @@ const Home = () => {
 
   return (
     <Layout>
+    <MotionReveal index={1}>
       <div className="inicio-container">
         <ArcoRecrea isOnClickDisabled displayHalf>
           <div className="texto-centro-arco">
@@ -254,7 +256,18 @@ const Home = () => {
             ))}
           </div>
         </div>
+         <img
+          src={`${import.meta.env.BASE_URL}src/assets/Escenario-scaled.jpg `}
+          alt="Logo Recrea"
+          className="logo-recrea"
+          style={{ width: 950, height: 500 }}
+        />
+         <div className="footer">
+          <p>© 2024 Recrea Academy. Todos los derechos reservados.</p>
+        </div>
+       
       </div>
+      </MotionReveal>
     </Layout>
   );
 };
