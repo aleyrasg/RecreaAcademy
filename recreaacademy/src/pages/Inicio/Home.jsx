@@ -257,7 +257,7 @@ const Home = () => {
           </div>
         </div>
          <img
-          src={`${import.meta.env.BASE_URL}src/assets/Escenario-scaled.jpg `}
+          src="../../assets/Escenario-scaled.jpg"
           alt="Logo Recrea"
           className="logo-recrea"
           style={{ width: 950, height: 500 }}
