@@ -153,7 +153,13 @@ export default function Eventos() {
                   glareMaxOpacity={0.3}
                   scale={1.05}
                   transitionSpeed={2500}
-                  style={{ borderRadius: "12px", width: "250px", height: "420px" }}
+                  style={{
+                    borderRadius: "12px",
+                    width: "250px",
+                    height: "420px",
+                    animation: `jump 2s ease-in-out infinite`,
+                    animationDelay: `${i * 0.6}s`,
+                  }}
                 >
                   <Card
                     sx={{
@@ -192,6 +198,18 @@ export default function Eventos() {
           </Swiper>
         </MotionReveal>
       </Box>
+      <style>
+        {`
+          @keyframes jump {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
+          }
+        `}
+      </style>
     </Layout>
   );
 }

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import parabotonempieza from "../../assets/parabotonempieza.png";
 import Layout from '../../components/Layout/Layout';
 import './Home.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -61,6 +63,7 @@ const testimonios = [
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [nuevoComentario, setNuevoComentario] = useState({ usuario: '', texto: '' });
+  const [mostrarImagen, setMostrarImagen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,7 +87,7 @@ const Home = () => {
           <h2 className="frase-principal">
             Una comunidad para docentes que inspiran y transforman
           </h2>
-          <button className="btn-empezar">Empieza</button>
+          <button className="btn-empezar" onClick={() => setMostrarImagen(true)}>Empieza</button>
           <h3 className="subtitulo">Más que una plataforma</h3>
           <p className="descripcion">
             Un espacio creado por y para docentes de Jalisco que creen en el poder de la educación con propósito en comunidad.
@@ -153,6 +156,102 @@ const Home = () => {
             </div>
           </div>
         )}
+        {mostrarImagen && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              backdropFilter: "blur(8px)",
+              backgroundColor: "rgba(0, 0, 0, 0.4)",
+              zIndex: 9999,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              animation: "fadeIn 0.5s ease-in-out"
+            }}
+            onClick={() => setMostrarImagen(false)}
+          >
+            <div style={{ position: "relative" }}>
+              <img
+                src={parabotonempieza}
+                alt="Vista previa"
+                style={{
+                  maxWidth: "90vw",
+                  maxHeight: "80vh",
+                  borderRadius: "12px",
+                  boxShadow: "0 0 20px rgba(0,0,0,0.5)",
+                  animation: "scaleIn 0.5s ease-in-out"
+                }}
+              />
+              <PlayArrowIcon
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  fontSize: 80,
+                  color: "#fff",
+                  backgroundColor: "rgba(0,0,0,0.5)",
+                  borderRadius: "50%",
+                  padding: "10px"
+                }}
+              />
+            </div>
+          </div>
+        )}
+        <style>
+          {`
+            @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+
+            @keyframes scaleIn {
+              from { transform: scale(0.95); opacity: 0; }
+              to { transform: scale(1); opacity: 1; }
+            }
+          `}
+        </style>
+        <div className="faq-section">
+          <h2 className="faq-title">Preguntas Frecuentes</h2>
+          <div className="faq-container">
+            {[
+              {
+                pregunta: "¿Qué es Recrea Academy?",
+                respuesta:
+                  "Recrea Academy es una plataforma creada por y para docentes de Jalisco para fortalecer su práctica educativa a través de rutas formativas, retos pedagógicos y recursos innovadores.",
+              },
+              {
+                pregunta: "¿Es gratuita la plataforma?",
+                respuesta:
+                  "Sí, es completamente gratuita para los docentes registrados en la Red Recrea.",
+              },
+              {
+                pregunta: "¿Puedo compartir mis propios recursos?",
+                respuesta:
+                  "Sí, puedes compartir experiencias, actividades o materiales con otros docentes desde tu perfil.",
+              },
+              {
+                pregunta: "¿Necesito conocimientos técnicos para usarla?",
+                respuesta:
+                  "No. Recrea Academy está diseñada para ser intuitiva y fácil de usar, incluso sin experiencia técnica previa.",
+              },
+              {
+                pregunta: "¿Cómo inicio sesión?",
+                respuesta:
+                  "Para iniciar sesión, da clic en el botón 'Iniciar sesión' en la esquina superior derecha e ingresa tu cuenta institucional o correo registrado en la plataforma.",
+              },
+            ].map((item, index) => (
+              <details key={index} className="faq-item">
+                <summary>{item.pregunta}</summary>
+                <p>{item.respuesta}</p>
+              </details>
+            ))}
+          </div>
+        </div>
       </div>
     </Layout>
   );
